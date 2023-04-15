@@ -29,4 +29,15 @@ export class AppComponent {
   public cumpleanhos(){
     this.person.age++;
   }
+
+  public onScroll(event: Event) {
+    const element = event.target as HTMLElement; //esto es un casting
+    console.log(element.scrollTop);
+  }
+
+  public changeName(event: Event) {
+    const element = event.target as HTMLInputElement; //esto es un casting
+    console.log(element.value);
+    this.person.name = element.value;
+  }
 }  //esto ya está conectado a la vista de app.component.html

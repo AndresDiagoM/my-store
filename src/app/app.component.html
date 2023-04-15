@@ -34,3 +34,23 @@
 <p>Edad {{person.age}}</p> <br>
 <progress [value]="person.age" max="100"></progress>
 <button (click)="cumpleanhos()">Cumpleaños</button>
+
+<!--Event Binding: otros eventos-->
+<hr><br>
+<h1> Event Binding: otros eventos</h1>
+<div (mouseover)="toggleButton()">Mouse Over</div>
+  <!--Event Binding: evento de scroll-->
+  <hr><br>
+  <h1> Event Binding: evento de scroll</h1>
+  <div class="box" (scroll)="onScroll($event)"> <!--$event es el evento, se envia asi cuando es del DOM-->
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet minus nisi culpa modi! Perspiciatis iste suscipit facere assumenda corrupti, fugit accusantium fuga, id ea quam unde sequi dolorem, natus minus.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet minus nisi culpa modi! Perspiciatis iste suscipit facere assumenda corrupti, fugit accusantium fuga, id ea quam unde sequi dolorem, natus minus.
+    </p>
+  </div>
+
+<!--Event Binding: Eventos de un input-->
+<hr><br>
+<h1> Event Binding: Eventos de un input</h1>
+<input type="text" (keyup)="changeName($event)">
+<input type="text" [value]="person.name">
