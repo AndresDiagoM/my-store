@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
-@Component({
+@Component({  //esto es un decorador de angular
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.html',  //esta es la conexión con la vista y la clase AppComponent
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-store';
-}
+  public name = 'Andres';
+  public age = 30;
+  public image = 'https://pbs.twimg.com/profile_images/953895184873467904/dRwouVDQ_400x400.jpg';
+}  //esto ya está conectado a la vista de app.component.html
