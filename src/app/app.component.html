@@ -20,8 +20,17 @@
 <progress [value]="age" max="100"></progress>
 <br>
 <img [src]="image" alt="image" width="200">
+    <!--Renderizar un objeto desde component.ts-->
+    <hr><br>
+    <p>Hola soy {{person.name}} </p>
+    <input type="text" [value]="person.name">
 
-<!--Renderizar un objeto desde component.ts-->
+<!--Event Binding-->
 <hr><br>
-<p>Hola soy {{person.name}} </p>
-<input type="text" [value]="person.name">
+<h1> Event Binding </h1>
+<button (click)="toggleButton()">Toggle</button>
+<button [disabled]="btnDisabled">Boton 2</button>
+<br>
+<p>Edad {{person.age}}</p> <br>
+<progress [value]="person.age" max="100"></progress>
+<button (click)="cumpleanhos()">Cumpleaños</button>

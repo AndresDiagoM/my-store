@@ -21,4 +21,12 @@ export class AppComponent {
     },
     avatar: 'https://pbs.twimg.com/profile_images/953895184873467904/dRwouVDQ_400x400.jpg'
   }
+
+  public toggleButton() {
+    this.btnDisabled = !this.btnDisabled;
+  }
+
+  public cumpleanhos(){
+    this.person.age++;
+  }
 }  //esto ya está conectado a la vista de app.component.html
