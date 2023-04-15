@@ -5,5 +5,23 @@
   el archivo app.component.ts
 </p>
 
-<!--IMAGEN desde component.ts-->
-<img src="{{ image }}" alt="image">
+<!--IMAGEN desde component.ts (string interpolation) -->
+<img src="{{ image }}" alt="image" width="200">
+
+<!--Property Binding: configurar propiedades de HTML-->
+<hr><br>
+<h1> Property Binding </h1>
+<button disabled="false">Boton</button>
+<button [disabled]="btnDisabled">Boton 2</button>
+<br>
+<input type="text" [value]="name"> <!--Property Binding de la variable name-->
+<br>
+<progress value="80" max="100"></progress>
+<progress [value]="age" max="100"></progress>
+<br>
+<img [src]="image" alt="image" width="200">
+
+<!--Renderizar un objeto desde component.ts-->
+<hr><br>
+<p>Hola soy {{person.name}} </p>
+<input type="text" [value]="person.name">

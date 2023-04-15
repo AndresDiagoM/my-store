@@ -9,4 +9,16 @@ export class AppComponent {
   public name = 'Andres';
   public age = 30;
   public image = 'https://pbs.twimg.com/profile_images/953895184873467904/dRwouVDQ_400x400.jpg';
+  btnDisabled = true;
+
+  person = {
+    name: 'Andres',
+    age: 30,
+    address: {
+      street: 'Calle falsa 123',
+      city: 'Bogota',
+      country: 'Colombia'
+    },
+    avatar: 'https://pbs.twimg.com/profile_images/953895184873467904/dRwouVDQ_400x400.jpg'
+  }
 }  //esto ya está conectado a la vista de app.component.html
