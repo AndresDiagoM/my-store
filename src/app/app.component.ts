@@ -43,6 +43,11 @@ export class AppComponent {
   ];
   color = 'red';
   imgWidth = 200;
+  box = {
+    width: 100,
+    height: 100,
+    background: 'red'
+  }
 
   person = {
     name: 'Andres',

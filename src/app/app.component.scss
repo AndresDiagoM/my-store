@@ -29,6 +29,17 @@
   }
 }
 
+.line-error {
+  height: 0;
+  border-bottom: 1px solid;
+  &.invalid {
+    border-color: red;
+  }
+  &.valid {
+    border-color: green;
+  }
+}
+
 // hacer el layout responsive
 @media screen and  (min-width: 40em) { // 40em = 640px para tablets en adelante
   .products--grid {
