@@ -101,3 +101,13 @@
 </ul>
 <input type="text" [(ngModel)]="newItem">
 <button (click)="addItem()">Add Item</button>
+
+<!--Directiva ngFor para Arrays-->
+<hr><br>
+<h1> Directiva ngFor para Arrays </h1>
+<div>
+    <div *ngFor="let obj of products; let i = index">
+        {{i}} - {{obj.name}} - {{obj.price}} - {{obj.description}}
+        <img [src]="obj.image" alt="image" width="100">
+    </div>
+</div>

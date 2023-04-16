@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product.model';
 
 @Component({  //esto es un decorador de angular
   selector: 'app-root',
@@ -12,6 +13,34 @@ export class AppComponent {
   btnDisabled = true;
   items = ['Andres', 'Julian', 'Felipe', 'Juan'];
   newItem = '';
+  products: Product[] = [
+    {
+      name: 'Producto 1',
+      price: 1000,
+      image: 'https://picsum.photos/200/300',
+      description: 'All'
+    },
+    {
+      name: 'Producto 2',
+      price: 2000,
+      image: 'https://picsum.photos/200/300'
+    },
+    {
+      name: 'Producto 3',
+      price: 3000,
+      image: 'https://picsum.photos/200/300'
+    },
+    {
+      name: 'Bike',
+      price: 4000,
+      image: './assets/images/bike.jpg'
+    },
+    {
+      name: 'Album',
+      price: 5000,
+      image: './assets/images/album.jpg'
+    },
+  ];
 
   person = {
     name: 'Andres',
