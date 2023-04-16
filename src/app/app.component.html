@@ -66,3 +66,38 @@
 <p>Edad: {{person.age}}</p>
 <input type="number" [(ngModel)]="person.age" #ageInput="ngModel" required max="30" min="8"> <!--ngModel es un directiva de Angular bidireccional-->
 <p>Valid: {{ ageInput.valid }}</p>
+
+<!--Directiva ngIf-->
+<hr><br>
+<h1> Directiva ngIf </h1>
+<button (click)="toggleButton()">Toggle</button>
+<button [disabled]="btnDisabled">Boton 2</button>
+<br>
+<p *ngIf="btnDisabled">Boton deshabilitado</p>
+<p *ngIf="!btnDisabled">Boton habilitado</p>
+
+<div *ngIf="btnDisabled; else templateElse">Hola, btnDisabled is TRUE</div>
+<ng-template #templateElse>
+    <div>btnDisabled is FALSE</div>
+</ng-template>
+
+<!--Directiva ngFor-->
+<hr><br>
+<h1> Directiva ngFor </h1>
+<ul>
+    <li >
+        <span>Index</span> -
+        <span>Item</span> -
+        <span>Even</span> -
+        <span>Odd</span> -
+        <span>First</span> -
+        <span>Last</span>
+    </li>
+    <li *ngIf = "items.length === 0">No hay items</li>
+    <li *ngFor="let item of items; let i = index; let e = even; let o = odd; let f = first; let l = last">
+        {{i}} - {{item}} - {{e}} - {{o}} - {{f}} - {{l}}
+        <button (click)="deleteItem(i)">Delete</button>
+    </li>
+</ul>
+<input type="text" [(ngModel)]="newItem">
+<button (click)="addItem()">Add Item</button>

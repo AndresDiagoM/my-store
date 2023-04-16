@@ -10,6 +10,8 @@ export class AppComponent {
   public age = 30;
   public image = 'https://pbs.twimg.com/profile_images/953895184873467904/dRwouVDQ_400x400.jpg';
   btnDisabled = true;
+  items = ['Andres', 'Julian', 'Felipe', 'Juan'];
+  newItem = '';
 
   person = {
     name: 'Andres',
@@ -39,5 +41,14 @@ export class AppComponent {
     const element = event.target as HTMLInputElement; //esto es un casting
     //console.log(element.value);
     this.person.name = element.value;
+  }
+
+  public addItem() {
+    this.items.push(this.newItem);
+    this.newItem = '';
+  }
+
+  public deleteItem(index: number) {
+    this.items.splice(index, 1); //cuantos elementos se borran a partir de la posición index
   }
 }  //esto ya está conectado a la vista de app.component.html
