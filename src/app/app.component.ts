@@ -42,6 +42,7 @@ export class AppComponent {
     },
   ];
   color = 'red';
+  imgWidth = 200;
 
   person = {
     name: 'Andres',

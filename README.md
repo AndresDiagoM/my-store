@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Online Deploy on StackBlitz
 
-You can visit the online version of this project on [StackBlitz](https://angular-girfub.stackblitz.io).
+You can visit the online version of this project on [StackBlitz](https://angular-ueh89u.stackblitz.io).
 
 ## Code scaffolding
 

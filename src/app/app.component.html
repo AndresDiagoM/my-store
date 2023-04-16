@@ -124,3 +124,24 @@
     <div *ngSwitchCase="'green'">You picked green color</div>
     <div *ngSwitchDefault>Pick again</div>
 </div>
+
+<!--Class Binding-->
+<br><hr>
+<h1> Class Binding </h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
+<br>
+<p class="message-error" [class.invalid]="!nameInput2.valid">Campo requerido</p>
+<!-- class.invalid lo que hace es agregar 'invalid' a la propiedad class="message-error invalid"-->
+<label >Nombre</label>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+<p [style.font-style]="!nameInput3.invalid ? 'italic' : 'normal'">TEXTO</p>
+<br>
+<div>
+  <div>
+    <label>Width: </label>
+    <input type="text" [(ngModel)]="imgWidth" />
+  </div>
+  <div>
+    <img [src]="image" alt="image" [style.width.px]="imgWidth" />
+  </div>
+</div>
