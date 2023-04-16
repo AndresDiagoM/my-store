@@ -111,3 +111,15 @@
         <img [src]="obj.image" alt="image" width="100">
     </div>
 </div>
+
+<!--Directiva ngSwitch-->
+<hr><br>
+<h1> Directiva ngSwitch </h1>
+<input type="text" [(ngModel)]="color">
+<button (click)="changeColor($event)">Change Color</button>
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">You picked red color</div>
+    <div *ngSwitchCase="'blue'">You picked blue color</div>
+    <div *ngSwitchCase="'green'">You picked green color</div>
+    <div *ngSwitchDefault>Pick again</div>
+</div>

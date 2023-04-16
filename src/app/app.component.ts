@@ -41,6 +41,7 @@ export class AppComponent {
       image: './assets/images/album.jpg'
     },
   ];
+  color = 'red';
 
   person = {
     name: 'Andres',
@@ -79,5 +80,10 @@ export class AppComponent {
 
   public deleteItem(index: number) {
     this.items.splice(index, 1); //cuantos elementos se borran a partir de la posición index
+  }
+
+  public changeColor(event: Event) {
+    const element = event.target as HTMLInputElement;
+    this.color = element.value;
   }
 }  //esto ya está conectado a la vista de app.component.html
