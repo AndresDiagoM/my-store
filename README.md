@@ -10,6 +10,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 You can visit the online version of this project on [StackBlitz](https://angular-ueh89u.stackblitz.io).
 
+## Online Deploy on Firebase
+
+Hosting URL: https://angular-platzi-381b5.web.app
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
