@@ -60,6 +60,12 @@ export class AppComponent {
     avatar: 'https://pbs.twimg.com/profile_images/953895184873467904/dRwouVDQ_400x400.jpg'
   }
 
+  register = {
+    name: '',
+    email: '',
+    password: '',
+  }
+
   public toggleButton() {
     this.btnDisabled = !this.btnDisabled;
   }
@@ -70,7 +76,7 @@ export class AppComponent {
 
   public onScroll(event: Event) {
     const element = event.target as HTMLElement; //esto es un casting
-    //console.log(element.scrollTop);
+    console.log(element.scrollTop);
   }
 
   public changeName(event: Event) {
@@ -91,5 +97,9 @@ export class AppComponent {
   public changeColor(event: Event) {
     const element = event.target as HTMLInputElement;
     this.color = element.value;
+  }
+
+  public onRegister() {
+    console.log(this.register);
   }
 }  //esto ya está conectado a la vista de app.component.html

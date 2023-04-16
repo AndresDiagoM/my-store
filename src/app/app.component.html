@@ -12,7 +12,7 @@
 <hr><br>
 <h1> Property Binding </h1>
 <button disabled="false">Boton</button>
-<button [disabled]="btnDisabled">Boton 2</button>
+<button [disabled]="!btnDisabled">Boton 2</button>
 <br>
 <input type="text" [value]="name"> <!--Property Binding de la variable name-->
 <br>
@@ -39,6 +39,7 @@
 <hr><br>
 <h1> Event Binding: otros eventos</h1>
 <div (mouseover)="toggleButton()">Mouse Over</div>
+<button [disabled]="btnDisabled">Boton 2</button>
   <!--Event Binding: evento de scroll-->
   <br>
   <h3> Event Binding: evento de scroll</h3>
@@ -67,6 +68,7 @@
 <input type="number" [(ngModel)]="person.age" #ageInput="ngModel" required max="30" min="8"> <!--ngModel es un directiva de Angular bidireccional-->
 <p>Valid: {{ ageInput.valid }}</p>
 
+
 <!--Directiva ngIf-->
 <hr><br>
 <h1> Directiva ngIf </h1>
@@ -80,6 +82,7 @@
 <ng-template #templateElse>
     <div>btnDisabled is FALSE</div>
 </ng-template>
+
 
 <!--Directiva ngFor-->
 <hr><br>
@@ -176,3 +179,29 @@
     }"></div>
   </div>
 </div>
+
+
+<!--Formulario-->
+<br><hr>
+<h1> Formulario </h1>
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" required #registerName="ngModel" [(ngModel)]="register.name" name="name" required/>
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    <label for="Email">Email</label>
+    <input type="email" id="Email" required #registerEmail="ngModel" [(ngModel)]="register.email" name="email" required/>
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    <label for="Password">Password</label>
+    <input type="password" id="Password" required #registerPassword="ngModel" [(ngModel)]="register.password" name="password" required/>
+    <p>Mensajes de error</p>
+  </div>
+
+  <button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>
+
+<app-register></app-register>
