@@ -1,5 +1,9 @@
 <div class="form-register">
   <form (ngSubmit)="onRegister()" #myForm="ngForm">
+
+    <h2>Angular Project</h2>
+    <h3>Registro de usuario</h3>
+
     <div class="input-group">
       <label for="form-name">Nombre:</label>
       <input type="text" id="form-name" #registerName="ngModel"
@@ -23,6 +27,10 @@
       'valid': registerName.valid ,
       'invalid': !registerName.valid && (registerName.touched || registerEmail.touched || registerPassword.touched)
     }">Complete los campos</p>
+
+    <p class="form-message" [ngClass]="{
+      'success': register.status ,
+      }">Registro exitoso!</p>
 
     <button class="form-button" type="submit" [disabled]="!myForm.valid"
       [ngClass]="{

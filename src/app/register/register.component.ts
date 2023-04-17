@@ -9,12 +9,12 @@ export class RegisterComponent {
   public register = {
     name: '',
     email: '',
-    password: ''
+    password: '',
+    status: false
   };
 
   onRegister() {
     //console.log('this.register');
-
-    
+    this.register.status = true;
   }
 }

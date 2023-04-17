@@ -5,11 +5,23 @@
     margin: auto; //margin is the space between the border and the container
 
     border-radius: 10px;
-    background-color: #88dcc0;
+    background-color: #5cbed4;
+
+    //centrar el contenido del div
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2, h3 {
+        margin: 10px 0;
+        color: #ffffff;
+    }
 }
 
 .input-group {
     margin-bottom: 10px;
+
     input {
         border-radius: 10px;
         border: 0;
@@ -43,6 +55,14 @@
         opacity: 0;
         margin-top: 0;
         padding: 0;
+    }
+    &.success {
+      opacity: 1;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      color: #ffffff;
+      background-color: #75e49f;
     }
 }
 
