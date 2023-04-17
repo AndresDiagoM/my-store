@@ -1,0 +1,75 @@
+.box {
+  height: 200px;
+  width: 200px;
+  overflow: scroll;
+  background-color: aqua;
+}
+
+.products--grid { //esto es para mobile -> MOBILE FIRST, se configura primero mobile
+  display: flex;
+  flex-direction: column; //se muestran los productos en un flex de 1 columna
+  div {
+    img {
+      width: 20%;
+      border-radius: 10px;
+    }
+    h3, p {
+      margin: 0;
+    }
+  }
+}
+
+.message-error {
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
+  opacity: 0;
+  &.invalid {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+}
+
+.line-error {
+  height: 0;
+  border-bottom: 1px solid;
+  &.invalid {
+    border-color: red;
+  }
+  &.valid {
+    border-color: green;
+  }
+}
+
+// hacer el layout responsive
+@media screen and  (min-width: 40em) { // 40em = 640px para tablets en adelante
+  .products--grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    div {
+      img {
+        width: 80%;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+// hacer el layout responsive para desktop
+@media screen and  (min-width: 64em) { // 64em = 1024px para desktop en adelante
+  .products--grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    grid-gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    div {
+      img {
+        width: 80%;
+        border-radius: 10px;
+      }
+    }
+  }
+}

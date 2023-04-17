@@ -1,0 +1,206 @@
+<h1> Hola mundo </h1>
+<h2>{{ 'Hola Mundo  '.repeat(5) }}</h2>
+<p> 3+3 = {{ 3+3 }}</p>
+<p> Hola soy {{ name }} y tengo {{age}} años. Estas están declaras como Public en
+  el archivo app.component.ts
+</p>
+
+<!--IMAGEN desde component.ts (string interpolation) -->
+<img src="{{ image }}" alt="image" width="200">
+
+<!--Property Binding: configurar propiedades de HTML-->
+<hr><br>
+<h1> Property Binding </h1>
+<button disabled="false">Boton</button>
+<button [disabled]="!btnDisabled">Boton 2</button>
+<br>
+<input type="text" [value]="name"> <!--Property Binding de la variable name-->
+<br>
+<progress value="80" max="100"></progress>
+<progress [value]="age" max="100"></progress>
+<br>
+<img [src]="image" alt="image" width="200">
+    <!--Renderizar un objeto desde component.ts-->
+    <hr><br>
+    <p>Hola soy {{person.name}} </p>
+    <input type="text" [value]="person.name">
+
+<!--Event Binding-->
+<hr><br>
+<h1> Event Binding </h1>
+<button (click)="toggleButton()">Toggle</button>
+<button [disabled]="btnDisabled">Boton 2</button>
+<br>
+<p>Edad {{person.age}}</p> <br>
+<progress [value]="person.age" max="100"></progress>
+<button (click)="cumpleanhos()">Cumpleaños</button>
+
+<!--Event Binding: otros eventos-->
+<hr><br>
+<h1> Event Binding: otros eventos</h1>
+<div (mouseover)="toggleButton()">Mouse Over</div>
+<button [disabled]="btnDisabled">Boton 2</button>
+  <!--Event Binding: evento de scroll-->
+  <br>
+  <h3> Event Binding: evento de scroll</h3>
+  <div class="box" (scroll)="onScroll($event)"> <!--$event es el evento, se envia asi cuando es del DOM-->
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet minus nisi culpa modi! Perspiciatis iste suscipit facere assumenda corrupti, fugit accusantium fuga, id ea quam unde sequi dolorem, natus minus.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet minus nisi culpa modi! Perspiciatis iste suscipit facere assumenda corrupti, fugit accusantium fuga, id ea quam unde sequi dolorem, natus minus.
+    </p>
+  </div>
+
+<!--Event Binding: Eventos de un input-->
+<br>
+<h3> Event Binding: Eventos de un input (keyup)</h3>
+<input type="text" (keyup)="changeName($event)">
+<input type="text" [value]="person.name">
+
+
+<!--Data binding con ngModel-->
+<hr><br>
+<h1> Data binding con ngModel [(ngModel)], bidireccional</h1>
+<p>Nombre: {{person.name}}</p>
+<input type="text" [(ngModel)]="person.name" #nameInput="ngModel" required> <!--ngModel es un directiva de Angular bidireccional-->
+<p>Valid: {{ nameInput.valid }}</p>
+<br>
+<p>Edad: {{person.age}}</p>
+<input type="number" [(ngModel)]="person.age" #ageInput="ngModel" required max="30" min="8"> <!--ngModel es un directiva de Angular bidireccional-->
+<p>Valid: {{ ageInput.valid }}</p>
+
+
+<!--Directiva ngIf-->
+<hr><br>
+<h1> Directiva ngIf </h1>
+<button (click)="toggleButton()">Toggle</button>
+<button [disabled]="btnDisabled">Boton 2</button>
+<br>
+<p *ngIf="btnDisabled">Boton deshabilitado</p>
+<p *ngIf="!btnDisabled">Boton habilitado</p>
+
+<div *ngIf="btnDisabled; else templateElse">Hola, btnDisabled is TRUE</div>
+<ng-template #templateElse>
+    <div>btnDisabled is FALSE</div>
+</ng-template>
+
+
+<!--Directiva ngFor-->
+<hr><br>
+<h1> Directiva ngFor </h1>
+<ul>
+    <li >
+        <span>Index</span> -
+        <span>Item</span> -
+        <span>Even</span> -
+        <span>Odd</span> -
+        <span>First</span> -
+        <span>Last</span>
+    </li>
+    <li *ngIf = "items.length === 0">No hay items</li>
+    <li *ngFor="let item of items; let i = index; let e = even; let o = odd; let f = first; let l = last">
+        {{i}} - {{item}} - {{e}} - {{o}} - {{f}} - {{l}}
+        <button (click)="deleteItem(i)">Delete</button>
+    </li>
+</ul>
+<input type="text" [(ngModel)]="newItem">
+<button (click)="addItem()">Add Item</button>
+
+<!--Directiva ngFor para Arrays-->
+<hr><br>
+<h1> Directiva ngFor para Arrays </h1>
+<div class="products--grid">
+    <div *ngFor="let obj of products; let i = index">
+        <h3>{{i}} - {{obj.name}} </h3>
+        <p> Precio {{obj.price}} - {{obj.description}}</p>
+        <img [src]="obj.image" alt="image">
+    </div>
+</div>
+
+<!--Directiva ngSwitch-->
+<hr><br>
+<h1> Directiva ngSwitch </h1>
+<input type="text" [(ngModel)]="color">
+<button (click)="changeColor($event)">Change Color</button>
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">You picked red color</div>
+    <div *ngSwitchCase="'blue'">You picked blue color</div>
+    <div *ngSwitchCase="'green'">You picked green color</div>
+    <div *ngSwitchDefault>Pick again</div>
+</div>
+
+
+<!--Class Binding-->
+<br><hr>
+<h1> Class Binding </h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
+<br>
+<p class="message-error" [class.invalid]="!nameInput2.valid">Campo requerido</p>
+<!-- class.invalid lo que hace es agregar 'invalid' a la propiedad class="message-error invalid"-->
+<label >Nombre</label>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
+<p [style.font-style]="!nameInput3.invalid ? 'italic' : 'normal'">TEXTO</p>
+<br>
+<div>
+  <div>
+    <label>Width: </label>
+    <input type="text" [(ngModel)]="imgWidth" />
+  </div>
+  <div>
+    <img [src]="image" alt="image" [style.width.px]="imgWidth" />
+  </div>
+</div>
+
+
+<!--NgClass y NgStyle-->
+<br><hr>
+<h1> NgClass y NgStyle </h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+<hr class="line-error" [ngClass]="{
+  'valid': nameInput4.valid,
+  'invalid': !nameInput4.valid
+}">
+<p [ngStyle]="{
+  'font-style': !nameInput4.invalid ? 'italic' : 'normal',
+  'color': !nameInput4.invalid ? 'green' : 'red'
+}">TEXTO</p>
+
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="box.width" />
+    <input type="number" [(ngModel)]="box.height" />
+    <input type="color" [(ngModel)]="box.background" />
+  </div>
+  <div>
+    <div [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background-color': box.background,
+      'display': 'block'
+    }"></div>
+  </div>
+</div>
+
+
+<!--Formulario-->
+<br><hr>
+<h1> Formulario </h1>
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" required #registerName="ngModel" [(ngModel)]="register.name" name="name" required/>
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    <label for="Email">Email</label>
+    <input type="email" id="Email" required #registerEmail="ngModel" [(ngModel)]="register.email" name="email" required/>
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    <label for="Password">Password</label>
+    <input type="password" id="Password" required #registerPassword="ngModel" [(ngModel)]="register.password" name="password" required/>
+    <p>Mensajes de error</p>
+  </div>
+
+  <button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>
+<br>
