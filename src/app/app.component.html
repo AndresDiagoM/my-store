@@ -8,3 +8,12 @@
 
 <!--Componente img-->
 <app-img></app-img>
+<app-img valor="este valor vienen desde el padre"></app-img>
+
+<hr>
+<input type="text" [(ngModel)]="title"/>
+<app-img [valor]="title"></app-img>
+
+<hr>
+<input type="text" [(ngModel)]="imgParent"/>
+<app-img [img]="imgParent"></app-img>

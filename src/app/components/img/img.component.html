@@ -1,1 +1,7 @@
-<p>img works!</p>
+<p>{{ valor }}</p>
+
+<img *ngIf="img else elsetemplate" [src]="img" alt="image" width="200">
+<ng-template #elsetemplate>
+  <p>No hay imagen</p>
+  <img src="./assets/images/bike.jpg" alt="image" width="200">
+</ng-template>
