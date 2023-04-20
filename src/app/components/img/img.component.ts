@@ -1,0 +1,16 @@
+import { Component,OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-img', //con este selector es que podemos llamar a este componente en el html de otro componente
+  templateUrl: './img.component.html',
+  styleUrls: ['./img.component.scss']
+})
+export class ImgComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+

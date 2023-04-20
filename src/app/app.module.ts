@@ -4,14 +4,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { RecapComponent } from './recap/recap.component';
+import { RegisterComponent } from './components/register/register.component';
+import { RecapComponent } from './components/recap/recap.component';
+import { ImgComponent } from './components/img/img.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    RecapComponent
+    RecapComponent,
+    ImgComponent
   ],
   imports: [
     BrowserModule,
