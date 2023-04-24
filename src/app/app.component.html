@@ -17,3 +17,9 @@
 <hr>
 <input type="text" [(ngModel)]="imgParent"/>
 <app-img [img]="imgParent" (imgLoadedEvent)="onLoaded($event)"></app-img>
+
+<hr>
+<h1>Utilizando Output e Input</h1>
+<app-product [product]="products[0]"></app-product>
+<hr>
+<app-product *ngFor="let p of products" [product]="p"></app-product>
