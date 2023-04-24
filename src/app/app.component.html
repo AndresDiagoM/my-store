@@ -16,4 +16,4 @@
 
 <hr>
 <input type="text" [(ngModel)]="imgParent"/>
-<app-img [img]="imgParent"></app-img>
+<app-img [img]="imgParent" (imgLoadedEvent)="onLoaded($event)"></app-img>

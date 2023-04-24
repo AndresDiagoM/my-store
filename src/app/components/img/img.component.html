@@ -1,7 +1,7 @@
-<p>{{ valor }}</p>
+<p>Variable: {{ valor }}</p>
 
-<img *ngIf="img else elsetemplate" [src]="img" alt="image" width="200">
+<img *ngIf="img else elsetemplate" [src]="img" (load)="imgLoaded()" (error)="imgError()" alt="image" width="200">
 <ng-template #elsetemplate>
   <p>No hay imagen</p>
-  <img src="./assets/images/bike.jpg" alt="image" width="200">
+  <img [src]="imgDefault" alt="image" width="200">
 </ng-template>
