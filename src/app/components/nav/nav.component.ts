@@ -11,6 +11,6 @@ export class NavComponent {
 
   ocultarMenu($event: any) {
     this.menuStatus = !this.menuStatus;
-    console.log(this.menuStatus);
+    //console.log(this.menuStatus);
   }
 }

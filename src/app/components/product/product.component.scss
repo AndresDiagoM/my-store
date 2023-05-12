@@ -26,4 +26,16 @@
         font-weight: bold;
         margin: 10px 0;
     }
+
+    .boton-producto {
+        background-color: #3cd880;
+        color: #fff;
+        border: 0;
+        padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+        //centrar el boton en el div
+        margin: auto;
+        display: block; //para que el boton se centre
+    }
 }

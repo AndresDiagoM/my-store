@@ -3,4 +3,6 @@
   <app-img  [img]="product.image"></app-img>
   <h2 class="precio-producto text-center">Precio: {{product.price}}</h2>
   <p class="nombre-producto text-center">Nombre: {{product.name}}</p>
+
+  <button class="boton-producto" (click)="addProduct()">Agregar al carrito</button>
 </div>

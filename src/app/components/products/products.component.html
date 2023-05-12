@@ -1,4 +1,6 @@
 <div class="catalogo">
-    <h1 class="catalogo-titulo">Catalogo de Productos</h1>
-    <app-product *ngFor="let p of products" [product]="p"></app-product>
+    <h1 class="catalogo-titulo">Catalogo de Productos - Agregados: {{cart.length}}</h1>
+    <app-product *ngFor="let p of products" [product]="p" (addedProduct)="addToCart($event)"></app-product>
 </div>
+
+<p class="text-center">Total {{total}}</p>

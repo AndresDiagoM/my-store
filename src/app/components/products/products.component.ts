@@ -8,6 +8,9 @@ import { Product } from 'src/app/models/product.model'; //importamos el modelo d
 })
 export class ProductsComponent {
 
+  // -- Propiedades --
+  cart: Product[] = [];
+  total: number = 0;
   products: Product[] = [
     {
       id: '1',
@@ -34,6 +37,13 @@ export class ProductsComponent {
       image: 'https://concepto.de/wp-content/uploads/2020/03/saturno-e1585016761130.jpg',
     },
   ];
+
+  // -- Métodos --
+  addToCart(product: Product) {
+    //console.log('product', product);
+    this.cart.push(product);
+    this.total = this.total + product.price;
+  }
 }
 
 // se crea un componente con "ng g c components/products"
