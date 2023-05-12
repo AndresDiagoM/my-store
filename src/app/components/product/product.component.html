@@ -1,3 +1,6 @@
-<img [src]="product.image" alt="" width="200">
-<h2 class="text-center">Precio: {{product.price}}</h2>
-<p class="text-center">Nombre: {{product.name}}</p>
+<div class="producto">
+  <!-- <img class="img-producto" [src]="product.image" alt="" width="200"> -->
+  <app-img  [img]="product.image"></app-img>
+  <h2 class="precio-producto text-center">Precio: {{product.price}}</h2>
+  <p class="nombre-producto text-center">Nombre: {{product.name}}</p>
+</div>

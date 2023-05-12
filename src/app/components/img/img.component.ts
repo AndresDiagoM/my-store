@@ -46,12 +46,12 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // before render
     // aqui se puede correr algo asincrono - fecth, promesas, etc
     console.log("ngOnInit de img component", "img: ", this.img);
-    if(this.img){
-      this.counterFn = window.setInterval(() => {
-        this.counter++;
-        console.log("counter: ", this.counter);
-      }, 1000);
-    }
+    // if(this.img){
+    //   this.counterFn = window.setInterval(() => {
+    //     this.counter++;
+    //     console.log("counter: ", this.counter);
+    //   }, 1000);
+    // }
   }
 
   ngAfterViewInit() {
@@ -63,7 +63,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   ngOnDestroy() {
     // before destroy
     // aqui se limpian los observables, intervalos, etc
-    window.clearInterval(this.counterFn);
+    // window.clearInterval(this.counterFn);
     console.log("ngOnDestroy de img component");
   }
 

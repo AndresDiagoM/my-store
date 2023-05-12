@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { RecapComponent } from './components/recap/recap.component';
 import { ImgComponent } from './components/img/img.component';
 import { ProductComponent } from './components/product/product.component';
+import { ProductsComponent } from './components/products/products.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductComponent } from './components/product/product.component';
     RegisterComponent,
     RecapComponent,
     ImgComponent,
-    ProductComponent
+    ProductComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

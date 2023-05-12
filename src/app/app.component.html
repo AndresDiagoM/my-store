@@ -7,7 +7,7 @@
 </div> -->
 
 <!--Componente img-->
-<app-img></app-img>
+<!-- <app-img></app-img>
 <app-img valor="este valor vienen desde el padre"></app-img>
 
 <hr>
@@ -17,10 +17,13 @@
 <hr>
 <input type="text" [(ngModel)]="imgParent"/>
 <app-img *ngIf="showImg" [img]="imgParent" (imgLoadedEvent)="onLoaded($event)"></app-img>
-<button (click)="toggleImg()">Toggle</button>
+<button (click)="toggleImg()">Toggle</button> -->
 
-<hr>
+<!-- <hr>
 <h1>Utilizando Output e Input</h1>
 <app-product [product]="products[0]"></app-product>
 <hr>
-<app-product *ngFor="let p of products" [product]="p"></app-product>
+<app-product *ngFor="let p of products" [product]="p"></app-product> -->
+
+<!--LLAMAR AL COMPONENTE DE CATALOGO DE PRODUCTOS-->
+<app-products></app-products>
