@@ -6,6 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Online Deploy on GitHub Pages
+
+Using this command: `ng build --output-path docs --base-href /my-store/`, you can deploy the project on GitHub Pages. You can visit the online version of this project on [GitHub Pages](https://andresdiagom.github.io/my-store/).
+
 ## Online Deploy on StackBlitz
 
 You can visit the online version of this project on [StackBlitz](https://angular-ueh89u.stackblitz.io).
@@ -13,6 +17,7 @@ You can visit the online version of this project on [StackBlitz](https://angular
 ## Online Deploy on Firebase
 
 Hosting URL: https://angular-platzi-381b5.web.app
+
 
 ## Code scaffolding
 
