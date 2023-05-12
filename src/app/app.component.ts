@@ -9,6 +9,7 @@ import { Product } from './models/product.model';
 export class AppComponent {
   title = 'App Padre';
   imgParent = "https://static.independent.co.uk/2023/04/11/18/spacex%20starship%20launch%20date%202023.jpg";
+  showImg = true;
 
   products: Product[] = [
     {
@@ -35,6 +36,10 @@ export class AppComponent {
 
   onLoaded(event: string) {
     console.log("[PADRE] evento recibido desde el hijo: ", event);
+  }
+
+  toggleImg() {
+    this.showImg = !this.showImg;
   }
 
 }

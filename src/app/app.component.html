@@ -16,7 +16,8 @@
 
 <hr>
 <input type="text" [(ngModel)]="imgParent"/>
-<app-img [img]="imgParent" (imgLoadedEvent)="onLoaded($event)"></app-img>
+<app-img *ngIf="showImg" [img]="imgParent" (imgLoadedEvent)="onLoaded($event)"></app-img>
+<button (click)="toggleImg()">Toggle</button>
 
 <hr>
 <h1>Utilizando Output e Input</h1>
