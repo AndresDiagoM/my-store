@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
+  menuStatus = false;
+
+  ocultarMenu($event: any) {
+    this.menuStatus = !this.menuStatus;
+    console.log(this.menuStatus);
+  }
 }

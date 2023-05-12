@@ -11,6 +11,22 @@
       background: transparent;
     }
   }
+  .side-menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transform: translateX(-100%); // para que se oculte el menu
+    transition: all ease-out .3s;
+    &.active {
+      transform: translateX(0);
+    }
+  }
 }
 .hide-mobile {
   display: none;
@@ -25,8 +41,9 @@
   .logo {
     margin-right: 1em;
   }
-  .logo img:hover {
+  img:hover {
     cursor: pointer;
+    transform: scale(1.1);
   }
   nav {
     display: flex;
@@ -54,6 +71,7 @@
     }
   }
 }
+
 
 /* Medium only */
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
