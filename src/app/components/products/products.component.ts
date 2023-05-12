@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
 import { Product } from 'src/app/models/product.model'; //importamos el modelo de datos
 
+import { StoreService } from 'src/app/services/store.service'; //importamos el servicio
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
+
+  // -- Constructor --  //inyectamos el servicio (inyeccion de dependencias)
+  constructor(private storeService: StoreService) {
+    this.cart = this.storeService.getCart();
+    this.total = this.storeService.getTotal();
+  }
+
 
   // -- Propiedades --
   cart: Product[] = [];
@@ -41,8 +50,8 @@ export class ProductsComponent {
   // -- Métodos --
   addToCart(product: Product) {
     //console.log('product', product);
-    this.cart.push(product);
-    this.total = this.total + product.price;
+    this.storeService.addToCart(product);
+    this.total = this.storeService.getTotal();
   }
 }
 

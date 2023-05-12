@@ -24,6 +24,21 @@
     text-align: center;
     line-height: 50px;
 }
+.total{
+    //ajustar en la parte inferior
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #527dcc;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 50px;
+}
 
 // medidas para tablet
 @media screen and (min-width: 40em) {
