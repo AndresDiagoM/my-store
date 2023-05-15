@@ -31,6 +31,8 @@ export class ProductsComponent {
   cart: Product[] = [];
   total: number = 0;
   products: Product[] = [];
+  today = new Date();
+  date = new Date(2021, 5, 1);
 
   // -- Métodos --
   addToCart(product: Product) {
