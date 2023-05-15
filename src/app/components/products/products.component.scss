@@ -3,7 +3,7 @@
     flex-wrap: wrap; // para que los elementos se acomoden en varias filas
     justify-content: space-around;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 8em;
     padding: 0;
     list-style: none;
     width: 100%;
@@ -26,7 +26,7 @@
 }
 .total{
     //ajustar en la parte inferior
-    position: fixed;
+    
     bottom: 0;
     margin: 0;
     width: 100%;
