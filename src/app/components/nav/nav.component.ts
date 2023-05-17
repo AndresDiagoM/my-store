@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,6 +9,17 @@ import { Component } from '@angular/core';
 export class NavComponent {
 
   menuStatus = false;
+  counter = 0;
+
+  constructor(
+    private storeService: StoreService
+  ) { }
+
+  ngOnInit(): void {
+    this.storeService.cartBehavior$.subscribe((cart) => {
+      this.counter = cart.length;
+    });
+  }
 
   ocultarMenu($event: any) {
     this.menuStatus = !this.menuStatus;

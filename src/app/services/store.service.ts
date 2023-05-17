@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 
+//importar la libreria para los observables
+import { BehaviorSubject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class StoreService {
+  // storeservice se encarga de la manipulacion del carrito de compras
 
   //--------Propiedades--------
   cart: Product[] = [];
   total: number = 0;
+  cartBehavior = new BehaviorSubject<Product[]>([]); // es un estado 
+  cartBehavior$ = this.cartBehavior.asObservable();
+  //subscribtor de cartBehavior, se caracteriza con un signo pesos al final
 
   constructor() { }
 
@@ -16,6 +23,7 @@ export class StoreService {
   addToCart(product: Product) {
     //console.log('product', product);
     this.cart.push(product);
+    this.cartBehavior.next(this.cart); //notificar a los subscriptores
   }
 
   getCart(){
