@@ -9,7 +9,7 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent {
+export class ProductsComponent implements  OnInit {
 
   // -- Constructor --  //inyectamos el servicio (inyeccion de dependencias)
   constructor(
@@ -29,7 +29,7 @@ export class ProductsComponent {
 
   // -- Propiedades --
   cart: Product[] = [];
-  total: number = 0;
+  total = 0;
   products: Product[] = [];
   today = new Date();
   date = new Date(2021, 5, 1);

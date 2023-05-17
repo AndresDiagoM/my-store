@@ -6,7 +6,7 @@ import { StoreService } from 'src/app/services/store.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
 
   menuStatus = false;
   counter = 0;
@@ -21,8 +21,8 @@ export class NavComponent {
     });
   }
 
-  ocultarMenu($event: any) {
+  ocultarMenu(event: Event) {
     this.menuStatus = !this.menuStatus;
-    //console.log(this.menuStatus);
+    console.log(event);
   }
 }

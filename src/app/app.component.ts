@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Product } from './models/product.model';
 
 @Component({  //esto es un decorador de angular
   selector: 'app-root',
