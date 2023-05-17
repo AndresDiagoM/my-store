@@ -11,6 +11,13 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements  OnInit {
 
+  // -- Propiedades --
+  cart: Product[] = [];
+  total = 0;
+  products: Product[] = [];
+  today = new Date();
+  date = new Date(2021, 5, 1);
+
   // -- Constructor --  //inyectamos el servicio (inyeccion de dependencias)
   constructor(
     private storeService: StoreService,
@@ -20,19 +27,12 @@ export class ProductsComponent implements  OnInit {
     this.total = this.storeService.getTotal();
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { // Asincrono
     this.productsService.getProducts().subscribe((productsApi) => {
-      //console.log(products);
+      //console.log(productsApi[0]);
       this.products = productsApi;
     });
   }
-
-  // -- Propiedades --
-  cart: Product[] = [];
-  total = 0;
-  products: Product[] = [];
-  today = new Date();
-  date = new Date(2021, 5, 1);
 
   // -- Métodos --
   addToCart(product: Product) {

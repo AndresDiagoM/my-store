@@ -4,6 +4,8 @@ import { Directive, ElementRef, HostListener  } from '@angular/core';
   selector: '[appHighlight]'
 })
 export class HighlightDirective {
+  //Angular utiliza el concepto de directiva para cambiar la apariencia o el comportamiento
+  //de un elemento en el HTML
 
   //el HostListener es para escuchar eventos del elemento html
   @HostListener('mouseenter') onMouseEnter() {

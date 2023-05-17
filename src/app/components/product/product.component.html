@@ -1,6 +1,6 @@
 <div class="producto">
   <!-- <img class="img-producto" [src]="product.image" alt="" width="200"> -->
-  <app-img  [img]="product.image"></app-img>
+  <app-img *ngIf="product.images && product.images.length > 0" [img]="product.images[0]"></app-img>
   <h2 class="precio-producto text-center">Precio: {{product.price | currency:'COP'}}</h2> <!-- currency es un PIPE de angular-->
   <p class="nombre-producto text-center">Nombre: {{product.title | slice:0:12 }}</p> <!-- product.title | slice:0:12 | vowels2num -->
 

@@ -7,11 +7,15 @@ import { Product } from '../models/product.model';
 })
 export class ProductsService {
 
+  // --------Propiedades--------
+  fakeStoreProductsUrl = 'https://fakestoreapi.com/products';
+  platziProductsUrl = 'https://young-sands-07814.herokuapp.com/api/products ';
+
   constructor(
     private http: HttpClient
   ) { }
 
   getProducts() {
-    return this.http.get<Product[]>('https://fakestoreapi.com/products');
+    return this.http.get<Product[]>(this.platziProductsUrl);
   }
 }
