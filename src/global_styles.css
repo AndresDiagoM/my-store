@@ -1,1 +1,7 @@
 /*Archivo para que funcione en stackblitz*/
+@import url(./styles/reset.scss);
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+* {
+  font-family: 'Quicksand', sans-serif;
+}
