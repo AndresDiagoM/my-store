@@ -5,4 +5,5 @@
   <p class="nombre-producto text-center">Nombre: {{product.title | slice:0:12 }}</p> <!-- product.title | slice:0:12 | vowels2num -->
 
   <button class="boton-producto" (click)="addProduct()" appHighlight>Agregar al carrito</button>
+  <button class="boton-detail" (click)="showDetail()">Ver detalle</button>
 </div>

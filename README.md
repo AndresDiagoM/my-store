@@ -98,7 +98,10 @@ Using this command: `ng build --output-path docs --base-href /my-store/`, you ca
 
 ## Online Deploy on StackBlitz
 
-You can visit the online version of this project on [StackBlitz](https://angular-ueh89u.stackblitz.io).
+Course 1 - Introduction: You can visit the online version of this project on [StackBlitz](https://angular-har1w6.stackblitz.io).
+
+Course 2 - Components: You can visit the online version of this project on [StackBlitz](https://angular-har1w6.stackblitz.io).
+
 
 ## Online Deploy on Firebase
 

@@ -38,4 +38,15 @@
         margin: auto;
         display: block; //para que el boton se centre
     }
+    .boton-detail {
+        background-color: #3cd880;
+        color: #fff;
+        border: 0;
+        padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+        //centrar el boton en el div
+        margin: 0.5em auto;
+        display: block; //para que el boton se centre
+    }
 }

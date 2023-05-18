@@ -4,8 +4,25 @@
       <p class="fecha">Today: {{ today  | date:'short' }}</p> <!-- timeAgo es un PIPE que creamos-->
     </h1>
 
-    <app-product *ngFor="let p of products" [product]="p" (addedProduct)="addToCart($event)"></app-product>
+    <app-product *ngFor="let p of products" [product]="p" (addedProduct)="addToCart($event)" (showDetailProduct)="onShowDetail($event)"></app-product>
 
     <p class="total">Total  COP: {{total}}$</p>
 </div>
 
+<div class="product-detail" [ngClass]="{'active':detailState}">
+  <div class="contenido">
+
+    <h1 class="detail-titulo">
+      <p> Detalle del Producto </p>
+      <button class="btn-close" (click)="closeDetail()">X</button>
+    </h1>
+
+    <div class="producto">
+      <!-- <img class="img-producto" [src]="product.image" alt="" width="200"> -->
+      <app-img *ngFor="let image of productDetail.images" [img]="image"></app-img>
+      <h2 class="precio-producto text-center">Precio: {{productDetail.price | currency:'COP'}}</h2>
+      <p class="nombre-producto text-center">Nombre: {{productDetail.title}}</p>
+      <p class="descripcion-producto text-center">Descripcion: {{productDetail.description}}</p>
+    </div>
+  </div>
+</div>

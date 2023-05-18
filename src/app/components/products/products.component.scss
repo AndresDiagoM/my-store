@@ -49,6 +49,87 @@
     line-height: 50px;
 }
 
+// ------  DETALLES DEL PRODUCTO ----
+.product-detail {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  bottom: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 0 5px #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transform: translateX(100%);
+  transition: all ease-out .3s;
+  &.active {
+    transform: translateX(0);
+  }
+}
+.product-detail .contenido {
+  display: block;
+}
+.product-detail .contenido .detail-titulo {
+  display: flex;
+  margin: 0.1em;
+  padding: 0 1em;
+  width: auto;
+  height: 50px;
+  background-color: #527dcc;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  justify-content: space-between;
+}
+.product-detail .contenido .btn-close {
+  border: 0;
+  background: transparent;
+  position: relative;
+  top: 0;
+  right: 0;
+  padding: 0.1em;
+  font-size: 1.5em;
+  color: #ffffff;
+  &:hover {
+    cursor: pointer;
+    transform: rotate(180deg);
+    transition: all ease-out .5s;
+  }
+}
+.product-detail .contenido .producto {
+  margin: 1em;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #ccc;
+  transition: all 0.3s ease-in-out; // all = todas las propiedades, 0.3s = tiempo de transicion, ease-in-out = aceleracion y desaceleracion
+  cursor: pointer;
+  &:hover{
+      box-shadow: 0 0 10px #4f4f4f;
+  }
+  .img-producto{
+      width: 20em;
+      height: 200px;
+      border-radius: 5px;
+      object-fit: cover;
+  }
+  .nombre-producto{
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 10px 0;
+  }
+  .precio-producto{
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 10px 0;
+  }
+}
+
 // medidas para tablet
 @media screen and (min-width: 40em) {
     .catalogo {
