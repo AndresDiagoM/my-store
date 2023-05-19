@@ -82,7 +82,9 @@ export class ProductsComponent implements  OnInit {
     this.detailState = !this.detailState;
   }
   onShowDetail(id: string) {
-    this.detailState = !this.detailState;
+    if(!this.detailState) {
+      this.detailState = true;
+    }
     this.productsService.getProduct(id).subscribe((product) => {
       this.productDetail = product;
       //console.log('product', product);

@@ -19,10 +19,21 @@
 
     <div class="producto">
       <!-- <img class="img-producto" [src]="product.image" alt="" width="200"> -->
-      <app-img *ngFor="let image of productDetail.images" [img]="image"></app-img>
+      <!-- <app-img *ngFor="let image of productDetail.images" [img]="image"></app-img> -->
+
+      <!-- Slider main container -->
+      <swiper class="swiper" [slidesPerView]="1">
+        <!-- Additional required wrapper -->
+        <ng-template swiperSlide *ngFor="let image of productDetail.images">
+          <img class="swiper-image" [src]="image" alt="image">
+          <!-- <app-img [img]="image"></app-img> -->
+        </ng-template>
+      </swiper>
+
       <h2 class="precio-producto text-center">Precio: {{productDetail.price | currency:'COP'}}</h2>
       <p class="nombre-producto text-center">Nombre: {{productDetail.title}}</p>
       <p class="descripcion-producto text-center">Descripcion: {{productDetail.description}}</p>
+
     </div>
   </div>
 </div>

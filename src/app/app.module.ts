@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SwiperModule } from 'swiper/angular';
+import SwiperCore, { Pagination } from "swiper";
 
 // ----  Importaciones de componentes ----
 import { AppRoutingModule } from './app-routing.module';
@@ -35,7 +37,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SwiperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
