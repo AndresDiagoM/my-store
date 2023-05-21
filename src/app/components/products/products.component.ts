@@ -119,7 +119,7 @@ export class ProductsComponent implements  OnInit {
       categoryId: 1,
       description: product.description
     }
-    console.log('dto', product);
+    //console.log('dto', product);
     this.productsService.update(product.id, product).subscribe((response) => {
       console.log('response', response);
       this.products = this.products.map((productMap) => { // actualizar la lista de productos

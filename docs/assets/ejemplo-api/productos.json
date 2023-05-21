@@ -27,7 +27,7 @@
         "typeImg": "any"
       },
       "images": [
-        "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+        "https://plus.unsplash.com/premium_photo-1670963025394-5cd71a3ae967?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
         "https://images.unsplash.com/photo-1605264964528-06403738d6dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
         "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=441&q=80"
       ]
@@ -857,6 +857,15 @@
         "typeImg": "tech"
       },
       "id": 53
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 2010010,
+      "name": "admin",
+      "email": "correo@correo.com",
+      "login": "admin",
+      "password": "0000"
     }
   ]
 }
