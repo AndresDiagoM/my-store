@@ -18,6 +18,9 @@ import { NavComponent } from './components/nav/nav.component';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { Vowels2numPipe } from './pipes/vowels2num.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -39,6 +42,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     FormsModule,
     HttpClientModule,
     SwiperModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]

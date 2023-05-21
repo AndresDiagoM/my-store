@@ -2,6 +2,7 @@
     <h1 class="catalogo-titulo">
       Catalogo de Productos - Agregados: {{cart.length}}
       <p class="fecha">Today: {{ today  | date:'short' }}</p> <!-- timeAgo es un PIPE que creamos-->
+      <button class="btn-create" (click)="createNewProduct()">X</button>
     </h1>
 
     <app-product *ngFor="let p of products" [product]="p" (addedProduct)="addToCart($event)" (showDetailProduct)="onShowDetail($event)"></app-product>

@@ -858,5 +858,14 @@
       },
       "id": 53
     }
+  ],
+  "usuarios": [
+    {
+      "id": 2010010,
+      "name": "admin",
+      "email": "correo@correo.com",
+      "login": "admin",
+      "password": "0000"
+    }
   ]
 }

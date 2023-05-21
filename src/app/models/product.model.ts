@@ -11,3 +11,7 @@ export interface Product {
   description ?: string; // ? es opcional
   category ?: Category;
 }
+
+export interface createProductDTO extends Omit<Product, 'id' | 'category'>{ //dto -> data transfer object
+  categoryId : number;
+}
