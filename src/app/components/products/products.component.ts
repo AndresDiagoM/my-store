@@ -48,11 +48,11 @@ export class ProductsComponent implements  OnInit {
       for (const key in productsApi) {
         if (Object.prototype.hasOwnProperty.call(productsApi, key)) {
           const product = productsApi[key];
+          product.id = key;
           this.products.push(product);
         }
       }
       //this.products = productsApi;
-      //console.log('products', productsApi[0]);
     });
     /**this.productsService.getFirestore().subscribe((products) => {
       //console.log('products', products[0]);
@@ -60,7 +60,7 @@ export class ProductsComponent implements  OnInit {
     } );*/
   }
 
-  // -- Métodos --
+  // --------- METODOS ----------
   addToCart(product: Product) {
     //console.log('product', product);
     this.storeService.addToCart(product);
@@ -71,7 +71,7 @@ export class ProductsComponent implements  OnInit {
   }
   onShowDetail(id: string) {
     if(!this.detailState) {
-      this.detailState = true;
+      this.detailState = true; // mostrar panel de detalle
     }
     this.productsService.getProduct(id).subscribe((product) => {
       this.productDetail = product;
@@ -85,18 +85,49 @@ export class ProductsComponent implements  OnInit {
   async onNewProduct(newProduct: Product | createProductDTO) {
 
     // Con API de firebase
-    this.productsService.create(newProduct).subscribe((product) => {
-      //console.log('product', product);
-      this.products.push(product);
+    this.productsService.create(newProduct).subscribe((response) => {
+      console.log('response', response);
+      //this.products.push(product);
+      //the server response with a object, but is not an entire product object
     });
+    this.products.push(newProduct as Product);
 
     // Con Firestore
     //const response= await this.productsService.createFirestore(newProduct);
     //console.log('response', response);
   }
   deleteProduct(product: Product) {
-    this.productsService.deleteFirestore(product).then(() => {
+    // Con API de firebase
+    this.productsService.delete(product).subscribe((response) => {
+      console.log('response', response);
+      const index = this.products.indexOf(product);
+      this.products.splice(index, 1);
+    });
+
+    // Con Firestore
+    /*this.productsService.deleteFirestore(product).then(() => {
       console.log('Producto eliminado');
+    });*/
+  }
+  updateProduct(product: Product) {
+    // Con API de firebase
+    const dto: createProductDTO = {
+      title: product.title,
+      price: product.price,
+      image: product.image,
+      images: product.images,
+      categoryId: 1,
+      description: product.description
+    }
+    console.log('dto', product);
+    this.productsService.update(product.id, product).subscribe((response) => {
+      console.log('response', response);
+      this.products = this.products.map((productMap) => { // actualizar la lista de productos
+        if(productMap.id === product.id) {
+          productMap = product;
+        }
+        return productMap;
+      });
     });
   }
 }

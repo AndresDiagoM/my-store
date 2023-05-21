@@ -1,3 +1,4 @@
+<!--CONTENEDOR DEL CATALOGO DE PRODUCTOS-->
 <div class="catalogo">
     <h1 class="catalogo-titulo">
       Catalogo de Productos - Agregados: {{cart.length}}
@@ -9,6 +10,7 @@
     <p class="total">Total  COP: {{total}}$</p>
 </div>
 
+<!--CONTENEDOR DEL PANEL DE DETALLER DEL PRODUCTO-->
 <div class="product-detail" [ngClass]="{'active':detailState}">
   <div class="contenido">
 
@@ -37,11 +39,13 @@
     </div>
 
     <div class="btn-container">
-      <button class="btn-borrar" (click)="deleteProduct(productDetail)">Eliminar</button>
+      <button class="btn-update" (click)="updateProduct(productDetail)">Actualizar</button>
+      <button class="btn-delete" (click)="deleteProduct(productDetail)">Eliminar</button>
     </div>
   </div>
 </div>
 
+<!--CONTENEDOR DEL PANEL DE CREAR PRODUCTO-->
 <button class="btn-create" (click)="closeCreateProduct()">+</button>
 <div class="create-product" [ngClass]="{'active':createState}">
   <div class="contenido">

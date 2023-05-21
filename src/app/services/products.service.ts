@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Product, createProductDTO } from '../models/product.model';
+import { Product, createProductDTO, updateProductDTO } from '../models/product.model';
 import { Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -30,6 +30,18 @@ export class ProductsService {
   create(product: createProductDTO | Product) {
     // add product with a post request with incremental
     return this.http.post<Product>(this.ejemploApiFirebase1, product);
+  }
+  delete(product: Product) {
+    // delete product with a delete request
+    let ejemploApi = 'https://api-ejemplo1-24e88-default-rtdb.firebaseio.com/productos';
+    return this.http.delete<Product>(`${ejemploApi}/${product.id}${'.json'}`);
+  }
+  update(id: string, dto: updateProductDTO){
+    // la url de una edicion funciona como la de un get
+    // put es para reemplazar todo el objeto
+    // patch es para reemplazar solo una parte del objeto
+    let ejemploApi = 'https://api-ejemplo1-24e88-default-rtdb.firebaseio.com/productos';
+    return this.http.put<Product>(`${ejemploApi}/${id}${'.json'}`, dto);
   }
 
   // --------MÉTODOS FIREBASE--------

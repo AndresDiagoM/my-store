@@ -15,3 +15,5 @@ export interface Product {
 export interface createProductDTO extends Omit<Product, 'id' | 'category'>{ //dto -> data transfer object
   categoryId : number;
 }
+
+export interface updateProductDTO extends Partial<createProductDTO>{} //partial -> todos los campos son opcionales

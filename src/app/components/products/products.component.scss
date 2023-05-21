@@ -132,12 +132,23 @@
 }
 .btn-container {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin: 0.5em 0;
   width: 100%;
 }
-.product-detail .contenido .btn-borrar {
+.product-detail .contenido .btn-update {
+  width: 50%;
+  background-color: #3cd880;
+  color: #fff;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  //centrar el boton en el div
+  margin: 0.5em auto;
+}
+.product-detail .contenido .btn-delete {
   width: 50%;
   background-color: #dc3545;
   color: #fff;

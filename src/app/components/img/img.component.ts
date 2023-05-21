@@ -69,9 +69,8 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
 
   //--------MÉTODOS--------
   // @Output() es para enviar datos al componente padre
-  imgError(): boolean {
+  imgError() {
     this.img = this.imgDefault;
-    return true;
   }
 
   imgLoaded() {
