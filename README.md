@@ -106,6 +106,7 @@ Course 2 - Components: You can visit the online version of this project on [Stac
 ## Online Deploy on Firebase
 
 Hosting URL - Curso 1 - Introduccion: https://angular-platzi-381b5.web.app
+
 Hosting URL - Curso 3 - APIs: https://angular-platzi-curso3.web.app
 
 ### Built With

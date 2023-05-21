@@ -21,6 +21,7 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { NewProductComponent } from './components/new-product/new-product.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     NavComponent,
     ReversePipe,
     Vowels2numPipe,
-    HighlightDirective
+    HighlightDirective,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,

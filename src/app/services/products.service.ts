@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product, createProductDTO } from '../models/product.model';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,11 +28,21 @@ export class ProductsService {
     return this.http.get<Product>(`${ejemploApiFirebase1get}/${id}${'.json'}`);
   }
   create(product: createProductDTO | Product) {
+    // add product with a post request with incremental
     return this.http.post<Product>(this.ejemploApiFirebase1, product);
   }
 
   // --------MÉTODOS FIREBASE--------
   createFirestore(product: createProductDTO | Product) {
-    return addDoc(collection(this.firestore, 'productos'), product);
+    const productRef = collection(this.firestore, 'productos');
+    return addDoc(productRef, product);
+  }
+  getFirestore(): Observable<Product[]> {
+    const productRef = collection(this.firestore, 'productos');
+    return collectionData(productRef, { idField: 'id' }) as Observable<Product[]>;
+  }
+  deleteFirestore(product: Product) {
+    const productRef = doc(this.firestore, `productos/${product.id}`);
+    return deleteDoc(productRef);
   }
 }

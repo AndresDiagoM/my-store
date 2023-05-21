@@ -35,5 +35,6 @@ export class ProductComponent implements OnInit{
   }
   showDetail() {
     this.showDetailProduct.emit(this.product.id);
+    //console.log(this.product.id);
   }
 }

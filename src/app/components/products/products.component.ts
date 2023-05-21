@@ -30,6 +30,7 @@ export class ProductsComponent implements  OnInit {
     },
     description: ''
   };
+  createState = false;
 
   // -- Constructor --  //inyectamos el servicio (inyeccion de dependencias)
   constructor(
@@ -43,25 +44,7 @@ export class ProductsComponent implements  OnInit {
   ngOnInit(): void { // Asincrono
     this.productsService.getProducts().subscribe((productsApi) => {
       //console.log(productsApi);
-      /**
-       * "0": {
-            "category": {
-              "id": 4,
-              "name": "Toys",
-              "typeImg": "any"
-            },
-            "description": "seat and back for all-day comfort and support",
-            "id": 1,
-            "images": [
-              "https://placeimg.com/640/480/any?r=0.3398371381896623",
-              "https://placeimg.com/640/480/any?r=0.7148954869451813",
-              "https://placeimg.com/640/480/any?r=0.7447492328272423"
-            ],
-            "price": 138,
-            "title": "Awesome Wooden Soap"
-          },
-       */
-      // formatear los datos
+      // formatear los datos de la API
       for (const key in productsApi) {
         if (Object.prototype.hasOwnProperty.call(productsApi, key)) {
           const product = productsApi[key];
@@ -69,7 +52,12 @@ export class ProductsComponent implements  OnInit {
         }
       }
       //this.products = productsApi;
+      //console.log('products', productsApi[0]);
     });
+    /**this.productsService.getFirestore().subscribe((products) => {
+      //console.log('products', products[0]);
+      this.products = products;
+    } );*/
   }
 
   // -- Métodos --
@@ -90,17 +78,25 @@ export class ProductsComponent implements  OnInit {
       //console.log('product', product);
     });
   }
-  createNewProduct() {
-    const newProduct: createProductDTO = {
-      title: 'Producto nuevo',
-      price: 1000,
-      image: 'https://picsum.photos/200/300',
-      images: [],
-      categoryId: 4,
-      description: 'Description'
-    };
+
+  closeCreateProduct() {
+    this.createState = !this.createState;
+  }
+  async onNewProduct(newProduct: Product | createProductDTO) {
+
+    // Con API de firebase
     this.productsService.create(newProduct).subscribe((product) => {
-      console.log('product', product);
+      //console.log('product', product);
+      this.products.push(product);
+    });
+
+    // Con Firestore
+    //const response= await this.productsService.createFirestore(newProduct);
+    //console.log('response', response);
+  }
+  deleteProduct(product: Product) {
+    this.productsService.deleteFirestore(product).then(() => {
+      console.log('Producto eliminado');
     });
   }
 }

@@ -2,7 +2,6 @@
     <h1 class="catalogo-titulo">
       Catalogo de Productos - Agregados: {{cart.length}}
       <p class="fecha">Today: {{ today  | date:'short' }}</p> <!-- timeAgo es un PIPE que creamos-->
-      <button class="btn-create" (click)="createNewProduct()">X</button>
     </h1>
 
     <app-product *ngFor="let p of products" [product]="p" (addedProduct)="addToCart($event)" (showDetailProduct)="onShowDetail($event)"></app-product>
@@ -36,5 +35,22 @@
       <p class="descripcion-producto text-center">Descripcion: {{productDetail.description}}</p>
 
     </div>
+
+    <div class="btn-container">
+      <button class="btn-borrar" (click)="deleteProduct(productDetail)">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<button class="btn-create" (click)="closeCreateProduct()">+</button>
+<div class="create-product" [ngClass]="{'active':createState}">
+  <div class="contenido">
+
+    <h1 class="create-titulo">
+      <p> Crear Producto </p>
+      <button class="btn-close" (click)="closeCreateProduct()">X</button>
+    </h1>
+
+    <app-new-product (newProductEvent)="onNewProduct($event)"></app-new-product>
   </div>
 </div>
