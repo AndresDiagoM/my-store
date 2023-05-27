@@ -116,6 +116,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![Angular.io][Angular.io]][Angular-url]
 * [![Angular-Cli][Angular-Cli]][Angular-Cli-url]
 * [![fakestoreapi][fakestoreapi]][fakestoreapi.com]
+* [![firebase][firebase]][firebase-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -247,3 +248,6 @@ Project Link: [https://github.com/AndresDiagoM/my-store](https://github.com/Andr
 
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+
+[firebase]: https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black
+[firebase-url]: https://firebase.google.com/

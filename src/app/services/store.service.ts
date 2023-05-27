@@ -25,7 +25,6 @@ export class StoreService {
     this.cart.push(product);
     this.cartBehavior.next(this.cart); //notificar a los subscriptores
   }
-
   getCart(){
     return this.cart;
   }

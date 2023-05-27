@@ -6,9 +6,8 @@
     </h1>
 
     <app-product *ngFor="let p of products" [product]="p" (addedProduct)="addToCart($event)" (showDetailProduct)="onShowDetail($event)"></app-product>
-
-    <p class="total">Total  COP: {{total}}$</p>
 </div>
+<p class="total">Total  COP: {{total}}$</p>
 
 <!--CONTENEDOR DEL PANEL DE DETALLER DEL PRODUCTO-->
 <div class="product-detail" [ngClass]="{'active':detailState}">

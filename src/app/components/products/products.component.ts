@@ -50,6 +50,7 @@ export class ProductsComponent implements  OnInit {
           const product = productsApi[key];
           product.id = key;
           this.products.push(product);
+          //console.log('product', product)
         }
       }
       //this.products = productsApi;
@@ -73,25 +74,26 @@ export class ProductsComponent implements  OnInit {
     if(!this.detailState) {
       this.detailState = true; // mostrar panel de detalle
     }
-    this.productsService.getProduct(id).subscribe((product) => {
+    // CONSULTAR EL PRODUCTO EN LA API
+    /*this.productsService.getProduct(id).subscribe((product) => {
       this.productDetail = product;
       //console.log('product', product);
-    });
+    });*/
+    // MOSTRAR EL PRODUCTO QUE ESTA EN EL ARRAY this.products
+    this.productDetail = this.products.find((product) => product.id === id) as Product;
   }
 
   closeCreateProduct() {
     this.createState = !this.createState;
   }
   async onNewProduct(newProduct: Product | createProductDTO) {
-
     // Con API de firebase
     this.productsService.create(newProduct).subscribe((response) => {
       console.log('response', response);
       //this.products.push(product);
       //the server response with a object, but is not an entire product object
+      this.products.push(newProduct as Product);
     });
-    this.products.push(newProduct as Product);
-
     // Con Firestore
     //const response= await this.productsService.createFirestore(newProduct);
     //console.log('response', response);
@@ -102,8 +104,8 @@ export class ProductsComponent implements  OnInit {
       console.log('response', response);
       const index = this.products.indexOf(product);
       this.products.splice(index, 1);
+      this.detailState = false; // cerrar el panel de detalle
     });
-
     // Con Firestore
     /*this.productsService.deleteFirestore(product).then(() => {
       console.log('Producto eliminado');
