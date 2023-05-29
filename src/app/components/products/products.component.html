@@ -6,7 +6,27 @@
     </h1>
 
     <app-product *ngFor="let p of products" [product]="p" (addedProduct)="addToCart($event)" (showDetailProduct)="onShowDetail($event)"></app-product>
-</div>
+
+    <!--BOTONES DEL PAGINADOR-->
+    <div class="paginador-container">
+      <button class="btn-paginador" (click)="prevPage()">Anterior</button>
+      <button class="btn-paginador" (click)="nextPage()">Siguiente</button>
+
+      <!-- <div class="btn-paginador">
+        <select class="select" [(ngModel)]="pageSize" (change)="changePageSize($event)">
+          <option *ngFor="let size of pageSizes" [value]="size">{{size}}</option>
+        </select>
+
+        <select class="select" [(ngModel)]="order" (change)="changeOrder($event)">
+          <option *ngFor="let o of orders" [value]="o">{{o}}</option>
+        </select>
+
+        <select class="select" [(ngModel)]="filter" (change)="changeFilter($event)">
+          <option *ngFor="let f of filters" [value]="f">{{f}}</option>
+        </select>
+      </div> -->
+    </div>
+  </div>
 <p class="total">Total  COP: {{total}}$</p>
 
 <!--CONTENEDOR DEL PANEL DE DETALLER DEL PRODUCTO-->
