@@ -103,6 +103,7 @@ export class ProductsComponent implements  OnInit {
     // Con Firestore
     const response= await this.productsService.createFirestore(newProduct);
     console.log('response', response);
+    this.products.push(newProduct as Product);
   }
 
   deleteProduct(product: Product) {
