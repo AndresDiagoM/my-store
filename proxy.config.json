@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "https://angular-platzi-curso3-default-rtdb.firebaseio.com",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
