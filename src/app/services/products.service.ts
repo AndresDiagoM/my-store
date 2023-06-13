@@ -5,6 +5,7 @@ import { Firestore, collection, addDoc, collectionData,
         doc, deleteDoc, updateDoc,
         limit, orderBy, query, startAfter } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,10 @@ export class ProductsService {
 
   // --------MÉTODOS--------
   getProducts() {
-    return this.http.get<Product[]>(this.angularPlatziCurso3);
+    return this.http.get<Product[]>(this.angularPlatziCurso3)
+    .pipe(
+      retry(3) // con observadores se puede usar retry
+    );
   }
   getProduct(id: string) {
     let ejemploApiFirebase1get = 'https://angular-platzi-curso3-default-rtdb.firebaseio.com/productos';
