@@ -6,6 +6,7 @@ import { Firestore, collection, addDoc, collectionData,
         limit, orderBy, query, startAfter } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class ProductsService {
   fakeStoreProductsUrl = 'https://fakestoreapi.com/products';
   platziProductsUrl = 'https://young-sands-07814.herokuapp.com/api/products ';
   ejemploApiFirebase1 = 'https://api-ejemplo1-24e88-default-rtdb.firebaseio.com/productos.json';
-  angularPlatziCurso3 = '/api/productos.json';
+  angularPlatziCurso3 = `${environment.API_URL}/api/productos.json`;
 
   constructor(
     private http: HttpClient,

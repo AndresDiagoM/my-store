@@ -8,4 +8,5 @@ export const environment = {
     messagingSenderId: '472571999207',
   },
   production: false,
+  API_URL: '',
 };

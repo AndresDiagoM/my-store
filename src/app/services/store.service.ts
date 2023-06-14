@@ -15,7 +15,7 @@ export class StoreService {
   total = 0;
   cartBehavior = new BehaviorSubject<Product[]>([]); // es un estado
   cartBehavior$ = this.cartBehavior.asObservable();
-  //subscribtor de cartBehavior, se caracteriza con un signo pesos al final
+  //subscriptor de cartBehavior, se caracteriza con un signo pesos al final
 
   constructor() { }
 
