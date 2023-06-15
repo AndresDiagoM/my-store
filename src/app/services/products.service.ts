@@ -4,7 +4,7 @@ import { Product, createProductDTO, updateProductDTO } from '../models/product.m
 import { Firestore, collection, addDoc, collectionData,
         doc, deleteDoc, updateDoc, getDoc,
         limit, orderBy, query, startAfter } from '@angular/fire/firestore';
-import { Observable, throwError, map } from 'rxjs';
+import { Observable, throwError, map, zip } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
@@ -102,6 +102,12 @@ export class ProductsService {
     return this.http.get<Product[]>(this.angularPlatziCurso3, {
       params: {offset, limit}
     });
+  }
+  fetchReadAndUpdate(id:string, dto: updateProductDTO){
+    return zip(
+      this.getProduct(id),
+      this.update(id, dto)
+    );
   }
 
   // --------MÉTODOS FIREBASE--------

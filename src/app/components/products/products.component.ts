@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product, createProductDTO, Category } from '../../models/product.model'; //importamos el modelo de datos
+import { switchMap, zip } from 'rxjs';
 
 import { StoreService } from '../../services/store.service'; //importamos el servicio
 import { ProductsService } from '../../services/products.service';
@@ -156,6 +157,39 @@ export class ProductsComponent implements  OnInit {
         }
         return productMap;
       });
+    });
+  }
+
+  readAndUpdateProduct(id:string, product1: Product) {
+    // Con API de firebase
+    // this.productsService.getProduct(id)
+    // .subscribe((product) => {
+    //   this.productsService.update(product.id, product1)
+    //   .subscribe((response) => {
+
+    //   });
+    // })
+    // evitar la anidación de observables
+    // usar algo como doSomething().then().then().then().....
+    // con los observables usar switchMap
+    this.productsService.getProduct(id)
+    .pipe(
+      switchMap((product) => this.productsService.update(product.id, product1))
+    )
+    .subscribe((response) => {
+      console.log('response', response);
+    });
+
+    // con zip se puede ejecutar varios observables al mismo tiempo, es mejor colocar la logica en el servicio
+    // zip(
+    //   this.productsService.getProduct(id),
+    //   this.productsService.update(id, product1)
+    // ).subscribe(([response1, response2]) => {
+    //   console.log('product', response1);
+    //   console.log('response', response2);
+    // });
+    this.productsService.fetchReadAndUpdate(id, product1).subscribe((response) => {
+      console.log('response', response);
     });
   }
 
