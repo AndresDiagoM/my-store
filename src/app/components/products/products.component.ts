@@ -33,6 +33,7 @@ export class ProductsComponent implements  OnInit {
   createState = false;
   limit = 10;
   offset = 0;
+  statusDetail: 'loading...' | 'error' | 'success' = 'loading...';
 
   // -- Constructor --  //inyectamos el servicio (inyeccion de dependencias)
   constructor(
@@ -44,19 +45,9 @@ export class ProductsComponent implements  OnInit {
   }
 
   ngOnInit(): void { // Asincrono
-    /*this.productsService.getProductsByPage(0,10).subscribe((productsApi) => {
-      //console.log(productsApi);
-      // formatear los datos de la API
-      for (const key in productsApi) {
-        if (Object.prototype.hasOwnProperty.call(productsApi, key)) {
-          const product = productsApi[key];
-          product.id = key;
-          this.products.push(product);
-          //console.log('product', product)
-        }
-      }
-      //this.products = productsApi;
-    });*/
+    // this.productsService.getProducts().subscribe((products) => {
+    //   this.products = products;
+    // });
     // Con Firestore
     this.productsService.getPageFirestore(this.offset.toString(),this.limit).subscribe((products) => {
       //console.log('products', products[0]);
@@ -76,16 +67,32 @@ export class ProductsComponent implements  OnInit {
   }
 
   onShowDetail(id: string) {
+    this.statusDetail = 'loading...';
     if(!this.detailState) {
       this.detailState = true; // mostrar panel de detalle
     }
     // CONSULTAR EL PRODUCTO EN LA API
-    /*this.productsService.getProduct(id).subscribe((product) => {
+    // this.productsService.getProduct(id).subscribe((product) => {
+    //   this.productDetail = product;
+    //   console.log('product', product);
+    // }, (error) => {
+    //   this.statusDetail = 'error';
+    //   console.log('error', error);
+    // });
+    // CONSULTAR EL PRODUCTO EN FIRESTORE
+    this.productsService.getFirestoreById(id).then((product) => {
       this.productDetail = product;
-      //console.log('product', product);
-    });*/
+      this.statusDetail = 'success';
+      if(product.id === '') {
+        this.statusDetail = 'error';
+      }
+      //console.log('status: ', this.productDetail);
+    }, (error) => {
+      this.statusDetail = 'error';
+      console.log('error', error);
+    });
     // MOSTRAR EL PRODUCTO QUE ESTA EN EL ARRAY this.products
-    this.productDetail = this.products.find((product) => product.id === id) as Product;
+    //this.productDetail = this.products.find((product) => product.id === id) as Product;
   }
 
   closeCreateProduct() {

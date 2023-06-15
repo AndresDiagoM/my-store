@@ -53,10 +53,15 @@
 
       <h2 class="precio-producto text-center">Precio: {{productDetail.price | currency:'COP'}}</h2>
       <p class="nombre-producto text-center">Nombre: {{productDetail.title}}</p>
+      <p class="nombre-producto text-center">ID: {{productDetail.id}}</p>
       <p class="descripcion-producto text-center">Descripcion: {{productDetail.description}}</p>
 
-    </div>
+      <div *ngIf="statusDetail==='error'">
+        <p class="error">Error al cargar el producto</p>
+      </div>
 
+    </div>
+    <!-- CONTENEDOR DE BOTONES -->
     <div class="btn-container">
       <button class="btn-update" (click)="updateProduct(productDetail)">Actualizar</button>
       <button class="btn-delete" (click)="deleteProduct(productDetail)">Eliminar</button>
