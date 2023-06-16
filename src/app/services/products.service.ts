@@ -16,7 +16,7 @@ export class ProductsService {
 
   // --------Propiedades--------
   fakeStoreProductsUrl = 'https://fakestoreapi.com/products';
-  platziProductsUrl = 'https://young-sands-07814.herokuapp.com/api/products ';
+  platziProductsUrl = 'https://young-sands-07814.herokuapp.com/api/products';
   ejemploApiFirebase1 = 'https://api-ejemplo1-24e88-default-rtdb.firebaseio.com/productos.json';
   angularPlatziCurso3 = `${environment.API_URL}/api/productos.json`;
   product: Product = {

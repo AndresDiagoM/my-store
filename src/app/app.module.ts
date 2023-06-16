@@ -22,6 +22,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { NewProductComponent } from './components/new-product/new-product.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { NewProductComponent } from './components/new-product/new-product.compon
     ReversePipe,
     Vowels2numPipe,
     HighlightDirective,
-    NewProductComponent
+    NewProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
