@@ -9,5 +9,5 @@ export const environment = {
   },
   production: false,
   API_URL: '',
-  API_PLATZI: '',
+  API_PLATZI: 'https://young-sands-07814.herokuapp.com',
 };

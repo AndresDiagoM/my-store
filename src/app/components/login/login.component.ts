@@ -16,6 +16,13 @@ export class LoginComponent {
   //--------PROPIEDADES--------
   email:string = "andres@mail.com";
   password:string = '123456';
+  user: User = {
+    id: '',
+    name: '',
+    email: '',
+    password: '',
+    token: ''
+  };
 
 
   //--------CONSTRUCTOR--------
@@ -41,9 +48,16 @@ export class LoginComponent {
 
   login() {
     this.authService.login(this.email, this.password).subscribe((result) => {
-      console.log('result', result);
-      this.tokenService.setToken(result.token);
+      //console.log('result', result.access_token);
+      this.tokenService.setToken(result.access_token);
       this.router.navigate(['/catalogo']);
+    });
+  }
+
+  getProfile() {
+    this.authService.profile().subscribe((result) => {
+      console.log('result', result);
+      this.user = result;
     });
   }
 }

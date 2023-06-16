@@ -29,13 +29,23 @@
         <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
       </a>
       <ul class="left-part menu">
-        <li><a href="">All</a></li>
+        <li><a routerLink="/catalogo" routerLinkActive="active">All</a></li>
         <li><a href="">Clothes</a></li>
         <li><a href="">Electronics</a></li>
       </ul>
     </nav>
     <div class="info">
-      <div class="account">andresdiag@unicauca.com</div>
+      <!-- <div class="account">andresdiag@unicauca.com</div> -->
+      <div class="profile">
+        <img class="profile-icon" src="./assets/images/profiles.png" alt="Profile Icon">
+        <div class="dropdown-content">
+          <h3>{{user.name}}</h3>
+          <p>Email: {{user.email}}</p>
+          <p>Location: New York</p>
+          <a href="#">Edit Profile</a>
+          <a routerLink="" routerLinkActive="active">Logout</a>
+        </div>
+      </div>
       <div class="cart">
         <a href="">
           <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">

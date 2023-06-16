@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../services/store.service';
+import { AuthService } from '../../services/auth/auth.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-nav',
@@ -10,19 +12,38 @@ export class NavComponent implements OnInit {
 
   menuStatus = false;
   counter = 0;
+  user: User = {
+    id: '',
+    name: '',
+    email: '',
+    password: '',
+    token: ''
+  };
 
+  // --------CONSTRUCTOR--------
   constructor(
-    private storeService: StoreService
+    private storeService: StoreService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.storeService.cartBehavior$.subscribe((cart) => {
       this.counter = cart.length;
     });
+    this.getProfile();
   }
 
+  // --------MÉTODOS--------
   ocultarMenu(event: Event) {
     this.menuStatus = !this.menuStatus;
     console.log(event);
   }
+
+  getProfile() {
+    this.authService.profile().subscribe((result) => {
+      //console.log('result', result);
+      this.user = result;
+    });
+  }
+
 }

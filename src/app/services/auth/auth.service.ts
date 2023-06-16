@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpParams, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpErrorResponse, HttpStatusCode, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError, map, zip } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
@@ -28,12 +28,13 @@ export class AuthService implements OnInit {
 
   // --------MÉTODOS--------
   login(email: string, password: string) {
+    //console.log(this.platziApi)
     return this.http.post<Auth>(`${this.platziApi}/login`, {email, password})
     .pipe(
       catchError((error: HttpErrorResponse) => {
         if(error.status === 404) { // error 404 o httpstatuscode.notfound
           console.log('error 404');
-          return throwError('Error 400, no se encontro el producto');
+          return throwError('[auth-service] Error 400, no se encontro el usuario');
         }
         return throwError('ups algo salio mal');
       })
@@ -42,9 +43,10 @@ export class AuthService implements OnInit {
 
   profile() {
     let token = this.tokenService.getToken();
-    if(token !== '') {
-      return this.http.get<User>(`${this.platziApi}/profile`, {headers: {authorization: token}})
-    }
-    return null;
+    let headers = new HttpHeaders();
+    //console.log('[auth-service] token', token);
+    headers = headers.append('authorization', `Bearer ${token}`);
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.get<User>(`${this.platziApi}/profile`, {headers})
   }
 }
