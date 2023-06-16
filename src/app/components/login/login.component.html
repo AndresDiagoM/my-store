@@ -2,12 +2,12 @@
 <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div>Site<span>Random</span></div>
+			<div>Platzi<span>Course</span></div>
 		</div>
 		<br>
 		<div class="login">
-				<input type="text" placeholder="username" name="user"><br>
-				<input type="password" placeholder="password" name="password"><br>
+				<input type="text" placeholder="username" name="user" [(ngModel)]="email"><br>
+				<input type="password" placeholder="password" name="password" [(ngModel)]="password"><br>
 				<input type="button" value="Login" (click)="login()">
 		</div>
 

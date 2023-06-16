@@ -1,3 +1,5 @@
+<app-nav></app-nav>
+
 <!--CONTENEDOR DEL CATALOGO DE PRODUCTOS-->
 <div class="catalogo">
     <h1 class="catalogo-titulo">
@@ -5,7 +7,8 @@
       <p class="fecha">Today: {{ today  | date:'short' }}</p> <!-- timeAgo es un PIPE que creamos-->
     </h1>
 
-    <app-product *ngFor="let p of products" [product]="p" (addedProduct)="addToCart($event)" (showDetailProduct)="onShowDetail($event)"></app-product>
+    <app-product *ngFor="let p of products" [product]="p" (addedProduct)="addToCart($event)"
+        (showDetailProduct)="onShowDetail($event)"></app-product>
 
     <!--BOTONES DEL PAGINADOR-->
     <div class="paginador-container">

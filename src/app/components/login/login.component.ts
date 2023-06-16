@@ -4,6 +4,7 @@ import { TokenService } from '../../services/auth/token.service';
 import { UsersService } from '../../services/auth/users.service';
 import { User, createUserDTO } from '../../models/user.model';
 import { Auth } from '../../models/auth.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,13 +14,16 @@ import { Auth } from '../../models/auth.model';
 export class LoginComponent {
 
   //--------PROPIEDADES--------
-  
+  email:string = "andres@mail.com";
+  password:string = '123456';
+
 
   //--------CONSTRUCTOR--------
   constructor(
     private authService: AuthService,
     private tokenService: TokenService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router
   ) {}
 
   //--------MÉTODOS--------
@@ -36,9 +40,10 @@ export class LoginComponent {
   }
 
   login() {
-    this.authService.login("andres@mail.com", "123456").subscribe((result) => {
+    this.authService.login(this.email, this.password).subscribe((result) => {
       console.log('result', result);
       this.tokenService.setToken(result.token);
+      this.router.navigate(['/catalogo']);
     });
   }
 }

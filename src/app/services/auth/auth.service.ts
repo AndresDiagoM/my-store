@@ -29,6 +29,15 @@ export class AuthService implements OnInit {
   // --------MÉTODOS--------
   login(email: string, password: string) {
     return this.http.post<Auth>(`${this.platziApi}/login`, {email, password})
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        if(error.status === 404) { // error 404 o httpstatuscode.notfound
+          console.log('error 404');
+          return throwError('Error 400, no se encontro el producto');
+        }
+        return throwError('ups algo salio mal');
+      })
+    )
   }
 
   profile() {
