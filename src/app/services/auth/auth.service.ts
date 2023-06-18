@@ -42,11 +42,12 @@ export class AuthService implements OnInit {
   }
 
   profile() {
-    let token = this.tokenService.getToken();
-    let headers = new HttpHeaders();
-    //console.log('[auth-service] token', token);
-    headers = headers.append('authorization', `Bearer ${token}`);
-    headers = headers.append('Content-Type', 'application/json');
-    return this.http.get<User>(`${this.platziApi}/profile`, {headers})
+    // let token = this.tokenService.getToken();
+    // let headers = new HttpHeaders();
+    // //console.log('[auth-service] token', token);
+    // headers = headers.append('authorization', `Bearer ${token}`);
+    // headers = headers.append('Content-Type', 'application/json');
+    // return this.http.get<User>(`${this.platziApi}/profile`, {headers})
+    return this.http.get<User>(`${this.platziApi}/profile`)
   }
 }

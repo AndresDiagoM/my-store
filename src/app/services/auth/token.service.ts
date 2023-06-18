@@ -19,10 +19,12 @@ export class TokenService {
 
   // --------MÉTODOS--------
   setToken(token: string) {
-    this.token = token;
+    //this.token = token;
+    localStorage.setItem('token', token);
   }
 
   getToken() {
-    return this.token;
+    //return this.token;
+    return localStorage.getItem('token');
   }
 }

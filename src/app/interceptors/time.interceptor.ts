@@ -5,7 +5,8 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable, tap } from 'rxjs'; // tap es un operador de rxjs que permite ejecutar una acción sin alterar el flujo de datos
+import { Observable, tap } from 'rxjs';
+// tap es un operador de rxjs que permite ejecutar una acción sin alterar el flujo de datos
 
 @Injectable()
 export class TimeInterceptor implements HttpInterceptor {

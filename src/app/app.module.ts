@@ -24,6 +24,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { NewProductComponent } from './components/new-product/new-product.component';
 import { LoginComponent } from './components/login/login.component';
 import { TimeInterceptor } from './interceptors/time.interceptor';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { TimeInterceptor } from './interceptors/time.interceptor';
     provideFirestore(() => getFirestore()),
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TimeInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: TimeInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

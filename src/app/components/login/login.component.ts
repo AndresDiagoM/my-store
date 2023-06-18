@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   //--------PROPIEDADES--------
-  email:string = "andres@mail.com";
-  password:string = '123456';
+  email:string = "maria@mail.com";
+  password:string = '12345';
   user: User = {
     id: '',
     name: '',
