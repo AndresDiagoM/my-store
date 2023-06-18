@@ -25,6 +25,7 @@ import { NewProductComponent } from './components/new-product/new-product.compon
 import { LoginComponent } from './components/login/login.component';
 import { TimeInterceptor } from './interceptors/time.interceptor';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { FilesComponent } from './components/files/files.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     Vowels2numPipe,
     HighlightDirective,
     NewProductComponent,
-    LoginComponent
+    LoginComponent,
+    FilesComponent
   ],
   imports: [
     BrowserModule,

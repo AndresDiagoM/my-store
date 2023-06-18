@@ -25,16 +25,14 @@
 <div class="hide-mobile"> <!--PARA ESCRITORIO-->
   <div>
     <nav class="left-part">
-      <a class="logo" href="">
+      <a class="logo" routerLink="/catalogo" routerLinkActive="active">
         <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
       </a>
       <ul class="left-part menu">
         <li><a routerLink="/catalogo" routerLinkActive="active">All</a></li>
-        <li><a href="">Clothes</a></li>
-        <li><a href="">Electronics</a></li>
-        <li><a href="../../../assets/files/texto1.txt" download>Descargar txt</a></li>
-        <li><a (click)="descargarPDF()" download>Descargar PDF</a></li>
-        <li><input type="file" (change)="cargarArchivo($event)" ></li>
+        <!-- <li><a href="">Clothes</a></li>
+        <li><a href="">Electronics</a></li> -->
+        <li><a routerLink="/files" routerLinkActive="active">Files</a></li>
       </ul>
     </nav>
     <div class="info">
@@ -50,7 +48,7 @@
         </div>
       </div>
       <div class="cart">
-        <a href="">
+        <a routerLink="/catalogo" routerLinkActive="active">
           <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
         </a>
         <span class="cart-count">{{counter}}</span>
