@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../services/store.service';
 import { AuthService } from '../../services/auth/auth.service';
 import { User } from '../../models/user.model';
+import { FilesService } from 'src/app/services/files.service';
 
 @Component({
   selector: 'app-nav',
@@ -23,7 +24,8 @@ export class NavComponent implements OnInit {
   // --------CONSTRUCTOR--------
   constructor(
     private storeService: StoreService,
-    private authService: AuthService
+    private authService: AuthService,
+    private filesService: FilesService
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +45,12 @@ export class NavComponent implements OnInit {
     this.authService.profile().subscribe((result) => {
       //console.log('result', result);
       this.user = result;
+    });
+  }
+
+  descargarPDF() {
+    this.filesService.getFiles('platzi', 'https://young-sands-07814.herokuapp.com/api/files/dummy.pdf', 'application/pdf').subscribe((result) => {
+      //console.log('result', result);
     });
   }
 

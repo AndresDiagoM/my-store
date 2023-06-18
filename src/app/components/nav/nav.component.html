@@ -32,6 +32,8 @@
         <li><a routerLink="/catalogo" routerLinkActive="active">All</a></li>
         <li><a href="">Clothes</a></li>
         <li><a href="">Electronics</a></li>
+        <li><a href="../../../assets/files/texto1.txt" download>Descargar txt</a></li>
+        <li><a (click)="descargarPDF()" download>Descargar PDF</a></li>
       </ul>
     </nav>
     <div class="info">
@@ -39,7 +41,7 @@
       <div class="profile">
         <img class="profile-icon" src="./assets/images/profiles.png" alt="Profile Icon">
         <div class="dropdown-content">
-          <h3>{{user.name}}</h3>
+          <h3>Nombre: {{user.name}}</h3>
           <p>Email: {{user.email}}</p>
           <p>Location: New York</p>
           <a href="#">Edit Profile</a>
