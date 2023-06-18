@@ -20,6 +20,7 @@ export class NavComponent implements OnInit {
     password: '',
     token: ''
   };
+  file = '';
 
   // --------CONSTRUCTOR--------
   constructor(
@@ -52,6 +53,17 @@ export class NavComponent implements OnInit {
     this.filesService.getFiles('platzi', 'https://young-sands-07814.herokuapp.com/api/files/dummy.pdf', 'application/pdf').subscribe((result) => {
       //console.log('result', result);
     });
+  }
+
+  cargarArchivo(event: Event) {
+    const element = (event.target as HTMLInputElement);
+    const file = element.files?.item(0);
+    if(file) {
+      this.filesService.uploadFile(file).subscribe((result) => {
+        console.log('[app-nav] upload', result);
+        this.file = result.location; // de la interfaz FileResponse en files.service.ts
+      });
+    }
   }
 
 }
