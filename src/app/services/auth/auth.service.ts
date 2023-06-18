@@ -8,6 +8,9 @@ import { User, createUserDTO } from '../../models/user.model';
 import { Auth } from '../../models/auth.model';
 import { TokenService } from './token.service';
 
+// para interceptar la peticion y medir el tiempo. Se tiene que añadir a cada peticion que se quiere medir
+import { checkTime } from 'src/app/interceptors/time.interceptor';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -48,6 +51,6 @@ export class AuthService implements OnInit {
     // headers = headers.append('authorization', `Bearer ${token}`);
     // headers = headers.append('Content-Type', 'application/json');
     // return this.http.get<User>(`${this.platziApi}/profile`, {headers})
-    return this.http.get<User>(`${this.platziApi}/profile`)
+    return this.http.get<User>(`${this.platziApi}/profile`, {context: checkTime()})
   }
 }
