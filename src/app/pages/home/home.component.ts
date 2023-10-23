@@ -37,6 +37,13 @@ export class HomeComponent {
   // --------- METODOS ----------
 
   // -- Metodos de paginacion --
+  pagination(received: String){
+    if(received == 'next'){
+      this.nextPage();
+    }else{
+      this.prevPage();
+    }
+  }
   nextPage() {
     this.offset += this.limit;
     this.productsService.getPageFirestore(this.offset.toString(), this.limit).subscribe((products) => {

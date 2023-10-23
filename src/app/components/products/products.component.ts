@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product, createProductDTO, Category } from '../../models/product.model'; //importamos el modelo de datos
 import { switchMap, zip } from 'rxjs';
 
@@ -33,6 +33,7 @@ export class ProductsComponent {
   };
   createState = false;
   statusDetail: 'loading...' | 'error' | 'success' = 'loading...';
+  @Output() emmitPagination = new EventEmitter<String>();
 
   // -- Constructor --  //inyectamos el servicio (inyeccion de dependencias)
   constructor(
@@ -42,7 +43,6 @@ export class ProductsComponent {
     this.cart = this.storeService.getCart();
     this.total = this.storeService.getTotal();
   }
-
 
   // --------- METODOS ----------
   addToCart(product: Product) {
@@ -181,7 +181,13 @@ export class ProductsComponent {
     });
   }
 
-
+  // -- Metodos de paginacion --
+  prevPage() {
+    this.emmitPagination.emit('prev'); // emmit event to home component in this case
+  }
+  nextPage() {
+    this.emmitPagination.emit('next');
+  }
 }
 
 // se crea un componente con "ng g c components/products"
