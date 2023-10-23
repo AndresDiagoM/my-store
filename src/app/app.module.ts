@@ -26,6 +26,12 @@ import { LoginComponent } from './components/login/login.component';
 import { TimeInterceptor } from './interceptors/time.interceptor';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { FilesComponent } from './components/files/files.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CategoryComponent } from './pages/category/category.component';
+import { MycartComponent } from './pages/mycart/mycart.component';
+import { RecoveryComponent } from './pages/recovery/recovery.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
@@ -42,7 +48,13 @@ import { FilesComponent } from './components/files/files.component';
     HighlightDirective,
     NewProductComponent,
     LoginComponent,
-    FilesComponent
+    FilesComponent,
+    HomeComponent,
+    NotFoundComponent,
+    CategoryComponent,
+    MycartComponent,
+    RecoveryComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product, createProductDTO, Category } from '../../models/product.model'; //importamos el modelo de datos
 import { switchMap, zip } from 'rxjs';
 
@@ -10,12 +10,12 @@ import { ProductsService } from '../../services/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements  OnInit {
+export class ProductsComponent {
 
   // -- Propiedades --
   cart: Product[] = [];
   total = 0;
-  products: Product[] = [];
+  @Input() products: Product[] = [];
   today = new Date();
   date = new Date(2021, 5, 1);
   detailState = false;
@@ -32,8 +32,6 @@ export class ProductsComponent implements  OnInit {
     description: ''
   };
   createState = false;
-  limit = 10;
-  offset = 0;
   statusDetail: 'loading...' | 'error' | 'success' = 'loading...';
 
   // -- Constructor --  //inyectamos el servicio (inyeccion de dependencias)
@@ -45,16 +43,6 @@ export class ProductsComponent implements  OnInit {
     this.total = this.storeService.getTotal();
   }
 
-  ngOnInit(): void { // Asincrono
-    // this.productsService.getProducts().subscribe((products) => {
-    //   this.products = products;
-    // });
-    // Con Firestore
-    this.productsService.getPageFirestore(this.offset.toString(),this.limit).subscribe((products) => {
-      //console.log('products', products[0]);
-      this.products = products;
-    });
-  }
 
   // --------- METODOS ----------
   addToCart(product: Product) {
@@ -193,19 +181,7 @@ export class ProductsComponent implements  OnInit {
     });
   }
 
-  // -- Metodos de paginacion --
-  nextPage() {
-    this.offset += this.limit;
-    this.productsService.getPageFirestore(this.offset.toString(), this.limit).subscribe((products) => {
-      this.products = products;
-    });
-  }
-  prevPage() {
-    this.offset -= this.limit;
-    this.productsService.getPageFirestore(this.offset.toString(), this.limit).subscribe((products) => {
-      this.products = products;
-    });
-  }
+
 }
 
 // se crea un componente con "ng g c components/products"
