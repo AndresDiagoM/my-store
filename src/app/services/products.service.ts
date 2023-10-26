@@ -16,7 +16,8 @@ export class ProductsService {
 
   // --------Propiedades--------
   fakeStoreProductsUrl = 'https://fakestoreapi.com/products';
-  platziProductsUrl = 'https://young-sands-07814.herokuapp.com/api/products';
+  platziAPI = 'https://damp-spire-59848.herokuapp.com';
+  platziProductsUrl = 'https://damp-spire-59848.herokuapp.com/api/products';
   ejemploApiFirebase1 = 'https://api-ejemplo1-24e88-default-rtdb.firebaseio.com/productos.json';
   angularPlatziCurso3 = `${environment.API_URL}/api/productos.json`;
   product: Product = {
@@ -149,5 +150,18 @@ export class ProductsService {
     return collectionData(
       query(productRef, orderBy('id'), limit(limitN), startAfter(offset)),  { idField: 'id' }
     ) as Observable<Product[]>;
+  }
+
+  // --------MÉTODOS API PLATZI--------
+  getByCategory(categoryId: string, offset?: number, limit?: number) {
+    let params = new HttpParams();
+    console.log('offset', offset);
+    console.log('limit', limit);
+    if(offset!=null && limit != null) {
+      params = params.append('offset', offset);
+      params = params.append('limit', limit);
+      console.log('params', params);
+    }
+    return this.http.get<Product[]>(`${this.platziAPI}/api/categories/${categoryId}/products`, {params});
   }
 }

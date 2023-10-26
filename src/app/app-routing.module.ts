@@ -15,37 +15,49 @@ import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/home', pathMatch: 'full'
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
   },
   {
-    path: 'register', component: RegisterComponent
+    path: 'register',
+    component: RegisterComponent
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path: 'catalogo', component: ProductsComponent
+    path: 'catalogo',
+    component: ProductsComponent
   },
   {
-    path: 'files', component: FilesComponent
+    path: 'files',
+    component: FilesComponent
   },
   {
-    path: 'home', component: HomeComponent
+    path: 'home',
+    component: HomeComponent
   },
   {
-    path: 'not-found', component: NotFoundComponent
+    path: 'not-found',
+    component: NotFoundComponent
   },
   {
-    path: 'category', component: CategoryComponent
+    path: 'category/:id',  // :id es para recibir un parametro por url
+    component: CategoryComponent
   },
   {
-    path: 'mycart', component: MycartComponent
+    path: 'my-cart',
+    component: MycartComponent
   },
   {
-    path: 'recovery', component: RecoveryComponent
+    path: 'recovery',
+    component: RecoveryComponent
   },
   {
-    path: 'profile', component: ProfileComponent
+    path: 'profile',
+    component: ProfileComponent
   },
 ];
 
