@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Product, createProductDTO, updateProductDTO } from '../models/product.model';
 import { Firestore, collection, addDoc, collectionData,
-        doc, deleteDoc, updateDoc, getDoc,
+        doc, deleteDoc, updateDoc, getDoc, where, getDocs,
         limit, orderBy, query, startAfter } from '@angular/fire/firestore';
+import { getFirestore } from '@firebase/firestore';
 import { Observable, throwError, map, zip } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -65,7 +66,7 @@ export class ProductsService {
     );
   }
   getProduct(id: string) {
-    let ejemploApiFirebase1get = 'https://angular-platzi-curso3-default-rtdb.firebaseio.com/productos';
+    const ejemploApiFirebase1get = 'https://angular-platzi-curso3-default-rtdb.firebaseio.com/productos';
     return this.http.get<Product>(`${ejemploApiFirebase1get}/${id}${'.json'}`)
     .pipe(
       catchError((error: HttpErrorResponse) => {
@@ -89,14 +90,14 @@ export class ProductsService {
   }
   delete(product: Product) {
     // delete product with a delete request
-    let ejemploApi = 'https://angular-platzi-curso3-default-rtdb.firebaseio.com/productos';
+    const ejemploApi = 'https://angular-platzi-curso3-default-rtdb.firebaseio.com/productos';
     return this.http.delete<Product>(`${ejemploApi}/${product.id}${'.json'}`);
   }
   update(id: string, dto: updateProductDTO){
     // la url de una edicion funciona como la de un get
     // put es para reemplazar todo el objeto
     // patch es para reemplazar solo una parte del objeto
-    let ejemploApi = 'https://angular-platzi-curso3-default-rtdb.firebaseio.com/productos';
+    const ejemploApi = 'https://angular-platzi-curso3-default-rtdb.firebaseio.com/productos';
     return this.http.put<Product>(`${ejemploApi}/${id}${'.json'}`, dto);
   }
   getProductsByPage(offset: number, limit: number) {

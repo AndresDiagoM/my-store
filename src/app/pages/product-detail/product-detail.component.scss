@@ -1,0 +1,73 @@
+.page-product {
+  .back-button {
+    margin: 0rem 1rem 0rem 1rem;
+    cursor: pointer;
+    background: transparent;
+    color: #00b894;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    //add < simbol to the button
+    &:before {
+      content: '<';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: row;
+
+    .gallery {
+      margin: 1rem 1rem 1rem 1rem;
+      border: 1px solid #dfe6e9;
+      width: 60%;
+      height: auto;
+
+      .swiper{
+        // margin
+        margin: 1rem 1rem 1rem 1rem;
+        border: 1px solid #dfe6e9;
+        // center the image
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+
+        .swiper-image {
+          // center the image
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          // image size
+          max-width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .text{
+      margin: 4rem 1rem 1rem 1rem;
+
+      .title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+      .price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+      .description {
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+}

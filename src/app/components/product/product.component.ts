@@ -1,17 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../models/product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['./product.component.scss'],
 })
-export class ProductComponent implements OnInit{
-
-  constructor () { }
-
-  ngOnInit(): void {
-  }
+export class ProductComponent {
 
   //--------Propiedades--------
   @Input() product: Product = {
@@ -22,12 +18,15 @@ export class ProductComponent implements OnInit{
     images: [],
     category: {
       id: '',
-      name: ''
+      name: '',
     },
-    description: ''
-  }
+    description: '',
+  };
   @Output() addedProduct = new EventEmitter<Product>();
   @Output() showDetailProduct = new EventEmitter<string>();
+
+  //--------Constructor--------
+  constructor(private router: Router) {} // Inject the Router service
 
   //--------MÉTODOS--------
   addProduct() {
@@ -35,6 +34,6 @@ export class ProductComponent implements OnInit{
   }
   showDetail() {
     this.showDetailProduct.emit(this.product.id);
-    //console.log(this.product.id);
+    this.router.navigate(['/product', this.product.id]);
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { StoreService } from '../../services/store.service'; //importamos el servicio
 import { ProductsService } from '../../services/products.service';
@@ -9,7 +9,7 @@ import { Product, createProductDTO, Category } from '../../models/product.model'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   // -- Propiedades --
   products: Product[] = [];
@@ -28,15 +28,16 @@ export class HomeComponent {
     //   this.products = products;
     // });
     // Con Firestore
-    this.productsService.getPageFirestore(this.offset.toString(),this.limit).subscribe((products) => {
+    this.productsService.getPageFirestore(this.offset.toString(),this.limit)
+    .subscribe((products) => {
       //console.log('products', products[0]);
       this.products = products;
     });
   }
 
-  // --------- METODOS ----------
+  // --------- MÉTODOS ----------
 
-  // -- Metodos de paginacion --
+  // -- Métodos de paginacion --
   pagination(received: String){
     if(received == 'next'){
       this.nextPage();

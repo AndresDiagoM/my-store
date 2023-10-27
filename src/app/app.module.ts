@@ -32,6 +32,7 @@ import { CategoryComponent } from './pages/category/category.component';
 import { MycartComponent } from './pages/mycart/mycart.component';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     CategoryComponent,
     MycartComponent,
     RecoveryComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

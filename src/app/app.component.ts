@@ -12,6 +12,7 @@ export class AppComponent {
   showImg = true;
 
   //--------CONSTRUCTOR--------
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor( ) {}
 
   //--------MÉTODOS--------

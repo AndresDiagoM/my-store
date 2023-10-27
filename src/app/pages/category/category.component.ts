@@ -10,7 +10,7 @@ import { Product } from '../../models/product.model';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss']
 })
-export class CategoryComponent {
+export class CategoryComponent implements OnInit {
 
   // --------------------- Properties ---------------------
   categoryId: string | null = this.route.snapshot.paramMap.get('id') || '';

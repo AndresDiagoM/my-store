@@ -12,6 +12,7 @@ import { CategoryComponent } from './pages/category/category.component';
 import { MycartComponent } from './pages/mycart/mycart.component';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -39,13 +40,17 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
-  {
-    path: 'not-found',
-    component: NotFoundComponent
-  },
+  // {
+  //   path: '**',
+  //   component: NotFoundComponent
+  // },
   {
     path: 'category/:id',  // :id es para recibir un parametro por url
     component: CategoryComponent
+  },
+  {
+    path: 'product/:id',
+    component: ProductDetailComponent
   },
   {
     path: 'my-cart',
