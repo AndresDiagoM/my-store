@@ -15,9 +15,10 @@
       Close
     </button>
     <ul>
-      <li><a href="">All</a></li>
-      <li><a href="">Clothes</a></li>
-      <li><a href="">Electronics</a></li>
+      <li><a routerLink="/home" routerLinkActive="active">All</a></li>
+      <li *ngFor="let category of categories">
+        <a [routerLink]="['/category', category.id]" routerLinkActive="active">{{category.name}}</a>
+      </li>
     </ul>
   </div>
 </div>
@@ -25,14 +26,15 @@
 <div class="hide-mobile"> <!--PARA ESCRITORIO-->
   <div>
     <nav class="left-part">
-      <a class="logo" routerLink="/catalogo" routerLinkActive="active">
+      <a class="logo" routerLink="/catalogo">
         <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
       </a>
       <ul class="left-part menu">
-        <li><a routerLink="/catalogo" routerLinkActive="active">All</a></li>
-        <!-- <li><a href="">Clothes</a></li>
-        <li><a href="">Electronics</a></li> -->
-        <li><a routerLink="/files" routerLinkActive="active">Files</a></li>
+        <li><a routerLink="/home" routerLinkActive="active">All</a></li>
+        <li><a routerLink="/files" routerLinkActive="active" >Files</a></li>
+        <li *ngFor="let category of categories">
+          <a [routerLink]="['/category', category.id]" routerLinkActive="active" >{{category.name}}</a>
+        </li>
       </ul>
     </nav>
     <div class="info">
@@ -44,11 +46,11 @@
           <p>Email: {{user.email}}</p>
           <p>Location: New York</p>
           <a href="#">Edit Profile</a>
-          <a routerLink="" routerLinkActive="active">Logout</a>
+          <a routerLink="/login" >Logout</a>
         </div>
       </div>
       <div class="cart">
-        <a routerLink="/catalogo" routerLinkActive="active">
+        <a routerLink="/catalogo" >
           <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
         </a>
         <span class="cart-count">{{counter}}</span>

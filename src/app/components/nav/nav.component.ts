@@ -3,6 +3,8 @@ import { StoreService } from '../../services/store.service';
 import { AuthService } from '../../services/auth/auth.service';
 import { User } from '../../models/user.model';
 import { FilesService } from 'src/app/services/files.service';
+import { CategoriesService } from 'src/app/services/categories.service';
+import { Category } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-nav',
@@ -21,12 +23,14 @@ export class NavComponent implements OnInit {
     token: ''
   };
   file = '';
+  categories: Category[] = [];
 
   // --------CONSTRUCTOR--------
   constructor(
     private storeService: StoreService,
     private authService: AuthService,
-    private filesService: FilesService
+    private filesService: FilesService,
+    private categoriesService: CategoriesService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +38,7 @@ export class NavComponent implements OnInit {
       this.counter = cart.length;
     });
     this.getProfile();
+    this.getAllCategories();
   }
 
   // --------MÉTODOS--------
@@ -46,6 +51,13 @@ export class NavComponent implements OnInit {
     this.authService.profile().subscribe((result) => {
       //console.log('result', result);
       this.user = result;
+    });
+  }
+
+  getAllCategories(){
+    this.categoriesService.getAll().subscribe((data) => {
+      console.log('categories', data);
+      this.categories = data;
     });
   }
 
