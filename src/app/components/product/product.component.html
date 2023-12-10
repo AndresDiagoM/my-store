@@ -1,7 +1,9 @@
 <div class="producto">
   <!-- <img class="img-producto" [src]="product.image" alt="" width="200"> -->
-  <app-img *ngIf="product.images && product.images.length > 0 else elsetemplate"
-    [img]="product.images[0]"></app-img>
+  <a [routerLink]="['/product', product.id]">
+    <app-img *ngIf="product.images && product.images.length > 0 else elsetemplate"
+      [img]="product.images[0]"></app-img>
+  </a>
   <ng-template #elsetemplate>
     <p>[app-product]: images array is empty</p>
     <app-img [img]="product.image" alt="image"></app-img>

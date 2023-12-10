@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../models/product.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -26,7 +25,6 @@ export class ProductComponent {
   @Output() showDetailProduct = new EventEmitter<string>();
 
   //--------Constructor--------
-  constructor(private router: Router) {} // Inject the Router service
 
   //--------MÉTODOS--------
   addProduct() {
@@ -34,6 +32,5 @@ export class ProductComponent {
   }
   showDetail() {
     this.showDetailProduct.emit(this.product.id);
-    this.router.navigate(['/product', this.product.id]);
   }
 }
