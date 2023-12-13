@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { StoreService } from '../../services/store.service'; //importamos el servicio
 import { ProductsService } from '../../services/products.service';
-import { Product, createProductDTO, Category } from '../../models/product.model';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,13 @@ export class HomeComponent implements OnInit {
   products: Product[] = [];
   offset = 0;
   limit = 10;
+  productId: string | null = '';
 
   // -- Constructor --
   constructor(
     private storeService: StoreService,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private route: ActivatedRoute
   ) {
   }
 
@@ -32,6 +35,11 @@ export class HomeComponent implements OnInit {
     .subscribe((products) => {
       //console.log('products', products[0]);
       this.products = products;
+    });
+
+    this.route.queryParamMap.subscribe((params) => {
+      this.productId = params.get('product');
+      console.log('productId', this.productId);
     });
   }
 

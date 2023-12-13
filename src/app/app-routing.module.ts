@@ -40,10 +40,6 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
-  // {
-  //   path: '**',
-  //   component: NotFoundComponent
-  // },
   {
     path: 'category/:id',  // :id es para recibir un parametro por url
     component: CategoryComponent
@@ -63,6 +59,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   },
 ];
 

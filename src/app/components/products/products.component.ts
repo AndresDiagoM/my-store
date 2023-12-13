@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Product, createProductDTO, Category } from '../../models/product.model'; //importamos el modelo de datos
-import { switchMap, zip } from 'rxjs';
+import { Product, createProductDTO } from '../../models/product.model'; //importamos el modelo de datos
+import { switchMap } from 'rxjs';
 
 import { StoreService } from '../../services/store.service'; //importamos el servicio
 import { ProductsService } from '../../services/products.service';
@@ -16,6 +16,11 @@ export class ProductsComponent {
   cart: Product[] = [];
   total = 0;
   @Input() products: Product[] = [];
+  @Input() set productId(id: string | null) {
+    if(id) {
+      this.onShowDetail(id);
+    }
+  }
   today = new Date();
   date = new Date(2021, 5, 1);
   detailState = false;
@@ -118,14 +123,14 @@ export class ProductsComponent {
 
   updateProduct(product: Product) {
     // Con API de firebase
-    const dto: createProductDTO = {
-      title: product.title,
-      price: product.price,
-      image: product.image,
-      images: product.images,
-      categoryId: 1,
-      description: product.description
-    }
+    // const dto: createProductDTO = {
+    //   title: product.title,
+    //   price: product.price,
+    //   image: product.image,
+    //   images: product.images,
+    //   categoryId: 1,
+    //   description: product.description
+    // }
     //console.log('dto', product);
     /*this.productsService.update(product.id, product).subscribe((response) => {
       console.log('response', response);
