@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewInit, OnDestroy, SimpleChanges } from '@angular/core';
 
 @Component({
@@ -9,23 +10,23 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
 
   //--------Propiedades--------
 
-  @Input() valor: string = "valor inicial en img component";
+  @Input() valor = "valor inicial en img component";
   // @Input() es para recibir datos desde el componente padre
-  @Input() img: string = "";
-  imgDefault: string = "https://www.meteorologiaenred.com/wp-content/uploads/2018/07/Planeta-J%C3%BApiter.png";
+  @Input() img = "";
+  imgDefault = "https://www.meteorologiaenred.com/wp-content/uploads/2018/07/Planeta-J%C3%BApiter.png";
 
   @Output() imgLoadedEvent = new EventEmitter<string>();
 
-  counter: number = 0;
+  counter = 0;
   counterFn: number | undefined;
 
   //--- para escuchar el cambio de un input en específico es necesario usar set y get
-  private new_img: string = "";
+  private new_img = "";
   @Input()
   set img2(value: string) {
     console.log("set img2: ", value);
     this.new_img = value;
-    // aqui se pone codigo que queremos que se ejecute cuando cambie este input
+    // aquí se pone código que queremos que se ejecute cuando cambie este input
   }
 
   constructor() {
@@ -34,6 +35,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     //console.log("constrcutor de img component", "img: ", this.img);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges) { //implements OnChanges, hay que declarar el método ngOnChanges
     // before and on the life cycle
     // esta funcion está pendiente de los cambios de los inputs

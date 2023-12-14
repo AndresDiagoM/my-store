@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StoreService } from '../../services/store.service';
-import { AuthService } from '../../services/auth/auth.service';
-import { User } from '../../models/user.model';
+import { StoreService } from '../../../services/store.service';
+import { AuthService } from '../../../services/auth/auth.service';
+import { User } from '../../../models/user.model';
 import { FilesService } from 'src/app/services/files.service';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { Category } from 'src/app/models/product.model';
@@ -9,10 +9,9 @@ import { Category } from 'src/app/models/product.model';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-
   menuStatus = false;
   counter = 0;
   user: User = {
@@ -20,7 +19,7 @@ export class NavComponent implements OnInit {
     name: '',
     email: '',
     password: '',
-    token: ''
+    token: '',
   };
   file = '';
   categories: Category[] = [];
@@ -31,7 +30,7 @@ export class NavComponent implements OnInit {
     private authService: AuthService,
     private filesService: FilesService,
     private categoriesService: CategoriesService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.storeService.cartBehavior$.subscribe((cart) => {
@@ -54,11 +53,10 @@ export class NavComponent implements OnInit {
     });
   }
 
-  getAllCategories(){
+  getAllCategories() {
     this.categoriesService.getAll().subscribe((data) => {
       console.log('categories', data);
       this.categories = data;
     });
   }
-
 }

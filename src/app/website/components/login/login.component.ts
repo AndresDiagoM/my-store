@@ -1,29 +1,27 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
-import { TokenService } from '../../services/auth/token.service';
-import { UsersService } from '../../services/auth/users.service';
-import { User, createUserDTO } from '../../models/user.model';
-import { Auth } from '../../models/auth.model';
+import { AuthService } from '../../../services/auth/auth.service';
+import { TokenService } from '../../../services/auth/token.service';
+import { UsersService } from '../../../services/auth/users.service';
+import { User, createUserDTO } from '../../../models/user.model';
+import { Auth } from '../../../models/auth.model';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-
   //--------PROPIEDADES--------
-  email:string = "maria@mail.com";
-  password:string = '12345';
+  email = 'maria@mail.com';
+  password = '12345';
   user: User = {
     id: '',
     name: '',
     email: '',
     password: '',
-    token: ''
+    token: '',
   };
-
 
   //--------CONSTRUCTOR--------
   constructor(
@@ -36,11 +34,11 @@ export class LoginComponent {
   //--------MÉTODOS--------
 
   createUser() {
-    const user:createUserDTO = {
+    const user: createUserDTO = {
       name: '',
       email: '',
       password: '',
-    }
+    };
     this.usersService.create(user).subscribe((user) => {
       console.log('user', user);
     });

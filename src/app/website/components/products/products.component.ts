@@ -1,23 +1,22 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Product, createProductDTO } from '../../models/product.model'; //importamos el modelo de datos
+import { Product, createProductDTO } from '../../../models/product.model'; //importamos el modelo de datos
 import { switchMap } from 'rxjs';
 
-import { StoreService } from '../../services/store.service'; //importamos el servicio
-import { ProductsService } from '../../services/products.service';
+import { StoreService } from '../../../services/store.service'; //importamos el servicio
+import { ProductsService } from '../../../services/products.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
-
   // -- Propiedades --
   cart: Product[] = [];
   total = 0;
   @Input() products: Product[] = [];
   @Input() set productId(id: string | null) {
-    if(id) {
+    if (id) {
       this.onShowDetail(id);
     }
   }
@@ -32,9 +31,9 @@ export class ProductsComponent {
     images: [],
     category: {
       id: '',
-      name: ''
+      name: '',
     },
-    description: ''
+    description: '',
   };
   createState = false;
   statusDetail: 'loading...' | 'error' | 'success' = 'loading...';
@@ -62,7 +61,7 @@ export class ProductsComponent {
 
   onShowDetail(id: string) {
     this.statusDetail = 'loading...';
-    if(!this.detailState) {
+    if (!this.detailState) {
       this.detailState = true; // mostrar panel de detalle
     }
     // CONSULTAR EL PRODUCTO EN LA API
@@ -74,17 +73,20 @@ export class ProductsComponent {
     //   console.log('error', error);
     // });
     // CONSULTAR EL PRODUCTO EN FIRESTORE
-    this.productsService.getFirestoreById(id).then((product) => {
-      this.productDetail = product;
-      this.statusDetail = 'success';
-      if(product.id === '') {
+    this.productsService.getFirestoreById(id).then(
+      (product) => {
+        this.productDetail = product;
+        this.statusDetail = 'success';
+        if (product.id === '') {
+          this.statusDetail = 'error';
+        }
+        //console.log('status: ', this.productDetail);
+      },
+      (error) => {
         this.statusDetail = 'error';
+        console.log('error', error);
       }
-      //console.log('status: ', this.productDetail);
-    }, (error) => {
-      this.statusDetail = 'error';
-      console.log('error', error);
-    });
+    );
     // MOSTRAR EL PRODUCTO QUE ESTA EN EL ARRAY this.products
     //this.productDetail = this.products.find((product) => product.id === id) as Product;
   }
@@ -102,7 +104,7 @@ export class ProductsComponent {
     //   this.products.push(newProduct as Product);
     // });
     // Con Firestore
-    const response= await this.productsService.createFirestore(newProduct);
+    const response = await this.productsService.createFirestore(newProduct);
     console.log('response', response);
     this.products.push(newProduct as Product);
   }
@@ -144,8 +146,9 @@ export class ProductsComponent {
     // Con Firestore
     this.productsService.updateFirestore(product.id, product).then(() => {
       //console.log('Producto actualizado');
-      this.products = this.products.map((productMap) => { // actualizar la lista de productos
-        if(productMap.id === product.id) {
+      this.products = this.products.map((productMap) => {
+        // actualizar la lista de productos
+        if (productMap.id === product.id) {
           productMap = product;
         }
         return productMap;
@@ -153,7 +156,7 @@ export class ProductsComponent {
     });
   }
 
-  readAndUpdateProduct(id:string, product1: Product) {
+  readAndUpdateProduct(id: string, product1: Product) {
     // Con API de firebase
     // this.productsService.getProduct(id)
     // .subscribe((product) => {
@@ -165,13 +168,16 @@ export class ProductsComponent {
     // evitar la anidación de observables
     // usar algo como doSomething().then().then().then().....
     // con los observables usar switchMap
-    this.productsService.getProduct(id)
-    .pipe(
-      switchMap((product) => this.productsService.update(product.id, product1))
-    )
-    .subscribe((response) => {
-      console.log('response', response);
-    });
+    this.productsService
+      .getProduct(id)
+      .pipe(
+        switchMap((product) =>
+          this.productsService.update(product.id, product1)
+        )
+      )
+      .subscribe((response) => {
+        console.log('response', response);
+      });
 
     // con zip se puede ejecutar varios observables al mismo tiempo, es mejor colocar la logica en el servicio
     // zip(
@@ -181,9 +187,11 @@ export class ProductsComponent {
     //   console.log('product', response1);
     //   console.log('response', response2);
     // });
-    this.productsService.fetchReadAndUpdate(id, product1).subscribe((response) => {
-      console.log('response', response);
-    });
+    this.productsService
+      .fetchReadAndUpdate(id, product1)
+      .subscribe((response) => {
+        console.log('response', response);
+      });
   }
 
   // -- Metodos de paginacion --

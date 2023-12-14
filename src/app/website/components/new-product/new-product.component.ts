@@ -1,18 +1,17 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Product, createProductDTO } from '../../models/product.model';
+import { Product, createProductDTO } from '../../../models/product.model';
 
 // --------SERVICES--------
-import { ProductsService } from '../../services/products.service';
+import { ProductsService } from '../../../services/products.service';
 
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
-  styleUrls: ['./new-product.component.scss']
+  styleUrls: ['./new-product.component.scss'],
 })
-export class NewProductComponent implements OnInit  {
-
+export class NewProductComponent implements OnInit {
   // --------Propiedades--------
-  status: boolean = false;
+  status = false;
   product: Product = {
     id: '',
     title: '',
@@ -21,9 +20,9 @@ export class NewProductComponent implements OnInit  {
     images: [''],
     category: {
       id: '',
-      name: ''
+      name: '',
     },
-    description: ''
+    description: '',
   };
   newProduct: createProductDTO = {
     title: 'Producto nuevo',
@@ -31,16 +30,14 @@ export class NewProductComponent implements OnInit  {
     image: 'https://picsum.photos/200/300',
     images: [],
     categoryId: 4,
-    description: 'Description'
+    description: 'Description',
   };
   @Output() newProductEvent = new EventEmitter<Product>();
 
   // --------CONSTRUCTOR--------
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 
   // --------MÉTODOS--------
   onCreate() {
