@@ -6,7 +6,6 @@ import { RegisterComponent } from './website/components/register/register.compon
 import { FilesComponent } from './website/components/files/files.component';
 
 // pages import
-import { LayoutComponent } from './website/components/layout/layout.component';
 import { HomeComponent } from './website/pages/home/home.component';
 import { NotFoundComponent } from './website/pages/not-found/not-found.component';
 import { CategoryComponent } from './website/pages/category/category.component';
@@ -14,6 +13,7 @@ import { MycartComponent } from './website/pages/mycart/mycart.component';
 import { RecoveryComponent } from './website/pages/recovery/recovery.component';
 import { ProfileComponent } from './website/pages/profile/profile.component';
 import { ProductDetailComponent } from './website/pages/product-detail/product-detail.component';
+import { LayoutComponent } from './website/components/layout/layout.component';
 
 const routes: Routes = [
   {
@@ -66,6 +66,11 @@ const routes: Routes = [
         component: ProfileComponent,
       },
     ],
+  },
+  {
+    path: 'cms',
+    loadChildren: () =>
+      import('./cms/cms.module').then((m) => m.CmsModule),
   },
   {
     path: '**',
