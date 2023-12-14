@@ -14,7 +14,7 @@ import { ProductsService } from '../../../services/products.service';
 export class ProductDetailComponent implements OnInit {
   //---------ATRIBUTOS---------
   productId: string | null = '';
-  product: Product | null = null;
+  product: Product | null | undefined = null;
 
   //---------CONSTRUCTOR---------
   constructor(
