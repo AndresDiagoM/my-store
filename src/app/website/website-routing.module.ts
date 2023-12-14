@@ -11,7 +11,7 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 
 // -------------- Components import ----------------
 import { LayoutComponent } from './components/layout/layout.component';
-import { ProductsComponent } from './components/products/products.component';
+import { ProductsComponent } from '../shared/components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FilesComponent } from './components/files/files.component';
@@ -72,6 +72,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class WebsiteRoutingModule { }
+export class WebsiteRoutingModule {}

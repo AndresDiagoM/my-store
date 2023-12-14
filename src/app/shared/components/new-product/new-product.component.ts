@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Product, createProductDTO } from '../../../models/product.model';
 

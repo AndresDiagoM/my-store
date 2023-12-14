@@ -4,6 +4,7 @@ import { SwiperModule } from 'swiper/angular';
 import { FormsModule } from '@angular/forms';
 
 import { WebsiteRoutingModule } from './website-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 // -------------- Pages import ---------------------
 import { HomeComponent } from './pages/home/home.component';
@@ -16,31 +17,19 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 // -------------- Components import ----------------
 import { RegisterComponent } from './components/register/register.component';
 import { RecapComponent } from './components/recap/recap.component';
-import { ImgComponent } from './components/img/img.component';
-import { ProductComponent } from './components/product/product.component';
-import { ProductsComponent } from './components/products/products.component';
 import { NavComponent } from './components/nav/nav.component';
-import { NewProductComponent } from './components/new-product/new-product.component';
 import { LoginComponent } from './components/login/login.component';
 import { FilesComponent } from './components/files/files.component';
+
 import { LayoutComponent } from './components/layout/layout.component';
 
-import { ReversePipe } from './pipes/reverse.pipe';
-import { Vowels2numPipe } from './pipes/vowels2num.pipe';
-import { HighlightDirective } from './directives/highlight.directive';
+
 
 @NgModule({
   declarations: [
-    ReversePipe,
-    Vowels2numPipe,
-    HighlightDirective,
     RegisterComponent,
     RecapComponent,
-    ImgComponent,
-    ProductComponent,
-    ProductsComponent,
     NavComponent,
-    NewProductComponent,
     LoginComponent,
     FilesComponent,
     HomeComponent,
@@ -56,6 +45,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     WebsiteRoutingModule,
     SwiperModule,
     FormsModule,
+    SharedModule,
   ],
 })
 export class WebsiteModule {}
