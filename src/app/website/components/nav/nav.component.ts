@@ -16,13 +16,7 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
   menuStatus = false;
   counter = 0;
-  user: User = {
-    id: '',
-    name: '',
-    email: '',
-    password: '',
-    token: '',
-  };
+  user: User | null = null;
   file = '';
   categories: Category[] = [];
 
@@ -51,7 +45,7 @@ export class NavComponent implements OnInit {
   }
 
   getProfile() {
-    this.authService.profile().subscribe((result) => {
+    this.authService.user$.subscribe((result) => {
       console.log('[nav] auth-service profile', result);
       this.user = result;
     });

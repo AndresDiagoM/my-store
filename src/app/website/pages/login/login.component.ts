@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
-import { TokenService } from '../../../services/auth/token.service';
 import { UsersService } from '../../../services/auth/users.service';
 import { User, createUserDTO } from '../../../models/user.model';
-import { Auth } from '../../../models/auth.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +24,6 @@ export class LoginComponent {
   //--------CONSTRUCTOR--------
   constructor(
     private authService: AuthService,
-    private tokenService: TokenService,
     private usersService: UsersService,
     private router: Router
   ) {}
@@ -46,10 +43,7 @@ export class LoginComponent {
   }
 
   login() {
-    this.authService.login(this.email, this.password).subscribe((result) => {
-      //console.log('result', result.access_token);
-      this.tokenService.setToken(result.access_token);
-      // console.log('token', this.tokenService.getToken());
+    this.authService.login(this.email, this.password).subscribe(()=>{
       this.router.navigate(['/home']);
     });
   }

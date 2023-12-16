@@ -10,7 +10,6 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 
 // -------------- Components import ----------------
 import { LayoutComponent } from './components/layout/layout.component';
-import { ProductsComponent } from '../shared/components/products/products.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FilesComponent } from './components/files/files.component';

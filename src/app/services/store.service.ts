@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 
-//importar la libreria para los observables
+//importar la librería para los observables
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

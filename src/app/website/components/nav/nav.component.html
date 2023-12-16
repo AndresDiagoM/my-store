@@ -42,8 +42,8 @@
       <div class="profile">
         <img class="profile-icon" src="./assets/images/profiles.png" alt="Profile Icon">
         <div class="dropdown-content">
-          <h3>Nombre: {{user.name}}</h3>
-          <p>Email: {{user.email}}</p>
+          <h3>Nombre: {{user?.name}}</h3>
+          <p>Email: {{user?.email}}</p>
           <p>Location: New York</p>
           <a routerLink="/profile" >Profile</a>
           <a (click)="logout()" >Logout</a>
