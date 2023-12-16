@@ -3,8 +3,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Product, createProductDTO } from '../../../models/product.model';
 
-// --------SERVICES--------
-import { ProductsService } from '../../../services/products.service';
 
 @Component({
   selector: 'app-new-product',

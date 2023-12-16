@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 // -------------- Pages import ---------------------
 import { HomeComponent } from './pages/home/home.component';
-import { CategoryComponent } from './pages/category/category.component';
 import { MycartComponent } from './pages/mycart/mycart.component';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -27,6 +26,15 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       {
+        path: 'home',
+        component: HomeComponent,
+      },
+      {
+        path: 'category', // :id es para recibir un parámetro por url
+        loadChildren: () => import('./pages/category/category.module').then((m) => m.CategoryModule),
+        data: { preload: true }, // false o comentario para no precargar, y cargar en demanda (lazy load)
+      },
+      {
         path: 'register',
         component: RegisterComponent,
       },
@@ -41,14 +49,6 @@ const routes: Routes = [
       {
         path: 'files',
         component: FilesComponent,
-      },
-      {
-        path: 'home',
-        component: HomeComponent,
-      },
-      {
-        path: 'category/:id', // :id es para recibir un parámetro por url
-        component: CategoryComponent,
       },
       {
         path: 'product/:id',
