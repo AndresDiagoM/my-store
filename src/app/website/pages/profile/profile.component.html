@@ -1,1 +1,8 @@
-<p>profile works!</p>
+<div class="profile-container">
+  <div class="profile-details" *ngIf="user">
+    <img class="profile-image" src="./assets/images/profiles.png" alt="Profile Icon">
+    <p class="name">Nombre: {{user.name}}</p>
+    <p class="email">Email: {{user.email}}</p>
+    <p class="role">Role: {{user.role || 'customer'}}</p>
+  </div>
+</div>

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { WebsiteRoutingModule } from './website-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { QuicklinkModule } from 'ngx-quicklink';
+// import { QuicklinkModule } from 'ngx-quicklink';
 
 // -------------- Pages import ---------------------
 import { HomeComponent } from './pages/home/home.component';
@@ -18,12 +18,10 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { RegisterComponent } from './components/register/register.component';
 import { RecapComponent } from './components/recap/recap.component';
 import { NavComponent } from './components/nav/nav.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { FilesComponent } from './components/files/files.component';
 
 import { LayoutComponent } from './components/layout/layout.component';
-
-
 
 @NgModule({
   declarations: [
@@ -45,7 +43,7 @@ import { LayoutComponent } from './components/layout/layout.component';
     SwiperModule,
     FormsModule,
     SharedModule,
-    QuicklinkModule,
+    // QuicklinkModule,
   ],
 })
 export class WebsiteModule {}

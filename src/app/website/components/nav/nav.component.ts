@@ -6,6 +6,8 @@ import { FilesService } from 'src/app/services/files.service';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { Category } from 'src/app/models/product.model';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -29,7 +31,8 @@ export class NavComponent implements OnInit {
     private storeService: StoreService,
     private authService: AuthService,
     private filesService: FilesService,
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -42,21 +45,34 @@ export class NavComponent implements OnInit {
 
   // --------MÉTODOS--------
   ocultarMenu(event: Event) {
+    // used in mobile only
     this.menuStatus = !this.menuStatus;
     console.log(event);
   }
 
   getProfile() {
     this.authService.profile().subscribe((result) => {
-      //console.log('result', result);
+      console.log('[nav] auth-service profile', result);
       this.user = result;
     });
   }
 
   getAllCategories() {
     this.categoriesService.getAll().subscribe((data) => {
-      console.log('categories', data);
+      console.log('[nav] categories', data);
       this.categories = data;
     });
+  }
+
+  logout() {
+    this.authService.logout();
+    this.user = {
+      id: '',
+      name: '',
+      email: '',
+      password: '',
+      token: '',
+    };
+    this.router.navigate(['/login']);
   }
 }

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'App Padre';
-  imgParent = "https://static.independent.co.uk/2023/04/11/18/spacex%20starship%20launch%20date%202023.jpg";
+  imgParent = 'assets/images/starship.avif';
   showImg = true;
 
   //--------CONSTRUCTOR--------

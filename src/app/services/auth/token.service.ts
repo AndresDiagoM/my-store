@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 
@@ -13,9 +15,9 @@ export class TokenService {
 
   // --------Propiedades--------
   platziApi = `${environment.API_PLATZI}/api/users`; //'https://young-sands-07814.herokuapp.com/api/products';
-  token: string = '';
+  token = '';
 
-  constructor() { }
+  constructor( private http: HttpClient) { }
 
   // --------MÉTODOS--------
   setToken(token: string) {

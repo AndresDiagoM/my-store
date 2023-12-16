@@ -11,9 +11,11 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 // -------------- Components import ----------------
 import { LayoutComponent } from './components/layout/layout.component';
 import { ProductsComponent } from '../shared/components/products/products.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FilesComponent } from './components/files/files.component';
+
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -31,20 +33,15 @@ const routes: Routes = [
       },
       {
         path: 'category', // :id es para recibir un parámetro por url
-        loadChildren: () => import('./pages/category/category.module').then((m) => m.CategoryModule),
+        loadChildren: () =>
+          import('./pages/category/category.module').then(
+            (m) => m.CategoryModule
+          ),
         data: { preload: true }, // false o comentario para no precargar, y cargar en demanda (lazy load)
       },
       {
         path: 'register',
         component: RegisterComponent,
-      },
-      {
-        path: 'login',
-        component: LoginComponent,
-      },
-      {
-        path: 'catalogo',
-        component: ProductsComponent,
       },
       {
         path: 'files',
@@ -64,9 +61,14 @@ const routes: Routes = [
       },
       {
         path: 'profile',
+        canActivate: [AuthGuard],
         component: ProfileComponent,
       },
     ],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 ];
 

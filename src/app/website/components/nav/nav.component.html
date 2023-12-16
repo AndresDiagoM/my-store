@@ -45,8 +45,8 @@
           <h3>Nombre: {{user.name}}</h3>
           <p>Email: {{user.email}}</p>
           <p>Location: New York</p>
-          <a href="#">Edit Profile</a>
-          <a routerLink="/login" >Logout</a>
+          <a routerLink="/profile" >Profile</a>
+          <a (click)="logout()" >Logout</a>
         </div>
       </div>
       <div class="cart">

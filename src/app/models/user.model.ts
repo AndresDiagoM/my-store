@@ -4,8 +4,9 @@ export interface User {
   email: string;
   password: string;
   token?: string | undefined;
+  role?: 'customer' | 'admin';
 }
 
-export interface createUserDTO extends Omit<User, 'id'>{}
+export type createUserDTO = Omit<User, 'id'>
 
-export interface updateUserDTO extends Partial<createUserDTO>{}
+export type updateUserDTO = Partial<createUserDTO>
