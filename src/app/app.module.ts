@@ -6,6 +6,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { SwiperModule } from 'swiper/angular';
+import { QuicklinkModule } from 'ngx-quicklink';
 
 // ----  Importaciones de componentes ----
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FormsModule,
     HttpClientModule,
     SwiperModule,
+    QuicklinkModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
   ],

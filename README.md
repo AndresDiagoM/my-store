@@ -20,6 +20,8 @@
   <p align="center">
     A simple store with Angular
     <br />
+    Angular version: 15.2.6 
+    <br />
     <a href=""><strong>Explore the docs »</strong></a>
     <br />
     <br />

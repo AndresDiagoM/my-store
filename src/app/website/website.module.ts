@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { WebsiteRoutingModule } from './website-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { QuicklinkModule } from 'ngx-quicklink';
 
 // -------------- Pages import ---------------------
 import { HomeComponent } from './pages/home/home.component';
@@ -44,6 +45,7 @@ import { LayoutComponent } from './components/layout/layout.component';
     SwiperModule,
     FormsModule,
     SharedModule,
+    QuicklinkModule,
   ],
 })
 export class WebsiteModule {}
