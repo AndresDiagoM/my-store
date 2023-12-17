@@ -1,121 +1,9 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBrmX4taOZzGllkbXm8Yug0PVqGo4vH1Aw",
-  authDomain: "api-ejemplo1-24e88.firebaseapp.com",
-  databaseURL: "https://api-ejemplo1-24e88-default-rtdb.firebaseio.com",
-  projectId: "api-ejemplo1-24e88",
-  storageBucket: "api-ejemplo1-24e88.appspot.com",
-  messagingSenderId: "977646061291",
-  appId: "1:977646061291:web:b9ab1bc3802077a84060ae"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-//const db = app.firestore();
-// const auth = app.database();
-
-const productos = [
-  {
-    "id": 0,
-    "title": "Product 1",
-    "price": 5000,
-    "description": "this is an example of product",
-    "category": {
-      "id": 4,
-      "name": "Toys",
-      "typeImg": "any"
-    },
-    "images": [
-      "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      "https://images.unsplash.com/photo-1605264964528-06403738d6dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
-      "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=441&q=80"
-    ]
-  },
-  {
-    "id": 1,
-    "title": "Awesome Wooden Soap",
-    "price": 138,
-    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-    "category": {
-      "id": 4,
-      "name": "Toys",
-      "typeImg": "any"
-    },
-    "images": [
-      "https://plus.unsplash.com/premium_photo-1670963025394-5cd71a3ae967?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
-      "https://images.unsplash.com/photo-1605264964528-06403738d6dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
-      "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=441&q=80"
-    ]
-  },
-  {
-    "id": 2,
-    "title": "Gorgeous Rubber Pants",
-    "price": 109,
-    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-    "category": {
-      "id": 2,
-      "name": "Electronics",
-      "typeImg": "tech"
-    },
-    "images": [
-      "https://placeimg.com/640/480/tech?r=0.8536129980982698",
-      "https://placeimg.com/640/480/tech?r=0.4898752091863161",
-      "https://placeimg.com/640/480/tech?r=0.10892399961486632"
-    ]
-  },
-  {
-    "id": 3,
-    "title": "Practical Plastic Shirt",
-    "price": 895,
-    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-    "category": {
-      "id": 5,
-      "name": "Others",
-      "typeImg": "animals"
-    },
-    "images": [
-      "https://placeimg.com/640/480/animals?r=0.36241593691646634",
-      "https://placeimg.com/640/480/animals?r=0.24880748641726647",
-      "https://placeimg.com/640/480/animals?r=0.34282937120048973"
-    ]
-  },
-  {
-    "id": 4,
-    "title": "Small Metal Sausages",
-    "price": 105,
-    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    "category": {
-      "id": 3,
-      "name": "Furniture",
-      "typeImg": "arch"
-    },
-    "images": [
-      "https://placeimg.com/640/480/arch?r=0.5881590838031434",
-      "https://placeimg.com/640/480/arch?r=0.24583733069707758",
-      "https://placeimg.com/640/480/arch?r=0.21201164937627248"
-    ]
-  },
-]
-
-productos.forEach((obj) => {
-  db.collection("productos").add(obj)
-    .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
-      // console.log("Document written with ID: ", docRef);
-    })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
-    });
-})
-
+//-------------------------------------------------------------
 // AGREGAR PRODUCTOS A FIRESTORE
-/*let productos = [
+/*
+  pegar esto en el componente de home en constructor, e importar el modelo de categoria
+*/
+let productos = [
   {
     "id": 5,
     "title": "Intelligent Soft Gloves",
@@ -127,9 +15,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.6429825630981565",
-      "https://placeimg.com/640/480/arch?r=0.10967559311960584",
-      "https://placeimg.com/640/480/arch?r=0.7399457720538865"
+      "https://unsplash.com/es/fotos/una-persona-nadando-en-el-oceano-rodeada-de-peces-4K_x--J2Jbc",
+      "https://unsplash.com/es/fotos/una-persona-nadando-en-el-oceano-rodeada-de-peces-4K_x--J2Jbc",
+      "https://unsplash.com/es/fotos/una-persona-nadando-en-el-oceano-rodeada-de-peces-4K_x--J2Jbc"
     ]
   },
   {
@@ -143,9 +31,9 @@ productos.forEach((obj) => {
       "typeImg": "any"
     },
     "images": [
-      "https://placeimg.com/640/480/any?r=0.8346796579778968",
-      "https://placeimg.com/640/480/any?r=0.40377712976853286",
-      "https://placeimg.com/640/480/any?r=0.4435542540104227"
+      "https://picsum.photos/640/480?random=1",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -159,9 +47,9 @@ productos.forEach((obj) => {
       "typeImg": "people"
     },
     "images": [
-      "https://placeimg.com/640/480/people?r=0.7622396750141238",
-      "https://placeimg.com/640/480/people?r=0.8435483450820662",
-      "https://placeimg.com/640/480/people?r=0.996972909156262"
+      "https://picsum.photos/640/480?random=1",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -175,9 +63,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.01254894397636308",
-      "https://placeimg.com/640/480/arch?r=0.6367408479836258",
-      "https://placeimg.com/640/480/arch?r=0.6333619365819405"
+      "https://picsum.photos/640/480?random=2",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -191,9 +79,9 @@ productos.forEach((obj) => {
       "typeImg": "animals"
     },
     "images": [
-      "https://placeimg.com/640/480/animals?r=0.8276787785720332",
-      "https://placeimg.com/640/480/animals?r=0.6583218394102683",
-      "https://placeimg.com/640/480/animals?r=0.5044850084247405"
+      "https://picsum.photos/640/480?random=2",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -207,9 +95,9 @@ productos.forEach((obj) => {
       "typeImg": "any"
     },
     "images": [
-      "https://placeimg.com/640/480/any?r=0.09450175686557438",
-      "https://placeimg.com/640/480/any?r=0.4935784224940307",
-      "https://placeimg.com/640/480/any?r=0.724207743565765"
+      "https://picsum.photos/640/480?random=3",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -223,9 +111,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.24841808930564602",
-      "https://placeimg.com/640/480/arch?r=0.43507002741718925",
-      "https://placeimg.com/640/480/arch?r=0.34512675210679555"
+      "https://picsum.photos/640/480?random=13",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -239,9 +127,9 @@ productos.forEach((obj) => {
       "typeImg": "any"
     },
     "images": [
-      "https://placeimg.com/640/480/any?r=0.7914423931532162",
-      "https://placeimg.com/640/480/any?r=0.30571769015300987",
-      "https://placeimg.com/640/480/any?r=0.25602957854256436"
+      "https://picsum.photos/640/480?random=4",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -255,9 +143,9 @@ productos.forEach((obj) => {
       "typeImg": "tech"
     },
     "images": [
-      "https://placeimg.com/640/480/tech?r=0.24043085531641584",
-      "https://placeimg.com/640/480/tech?r=0.8398904404693233",
-      "https://placeimg.com/640/480/tech?r=0.6480845582687269"
+      "https://picsum.photos/640/480?random=4",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -271,9 +159,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.42770220320025953",
-      "https://placeimg.com/640/480/arch?r=0.7956441655879369",
-      "https://placeimg.com/640/480/arch?r=0.004765946379323482"
+      "https://picsum.photos/640/480?random=5",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -287,9 +175,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.598904648691506",
-      "https://placeimg.com/640/480/arch?r=0.46178137435076483",
-      "https://placeimg.com/640/480/arch?r=0.627205170673607"
+      "https://picsum.photos/640/480?random=5",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -303,9 +191,9 @@ productos.forEach((obj) => {
       "typeImg": "people"
     },
     "images": [
-      "https://placeimg.com/640/480/people?r=0.6315739709124757",
-      "https://placeimg.com/640/480/people?r=0.708807194740442",
-      "https://placeimg.com/640/480/people?r=0.6794513134122488"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -319,9 +207,9 @@ productos.forEach((obj) => {
       "typeImg": "people"
     },
     "images": [
-      "https://placeimg.com/640/480/people?r=0.5081890349325082",
-      "https://placeimg.com/640/480/people?r=0.6990195052254553",
-      "https://placeimg.com/640/480/people?r=0.17933310429090743"
+      "https://picsum.photos/640/480?random=11",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -335,9 +223,9 @@ productos.forEach((obj) => {
       "typeImg": "any"
     },
     "images": [
-      "https://placeimg.com/640/480/any?r=0.07798845177869107",
-      "https://placeimg.com/640/480/any?r=0.10736133409202164",
-      "https://placeimg.com/640/480/any?r=0.9474629135946548"
+      "https://picsum.photos/640/480?random=12",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -351,9 +239,9 @@ productos.forEach((obj) => {
       "typeImg": "tech"
     },
     "images": [
-      "https://placeimg.com/640/480/tech?r=0.550722288456567",
-      "https://placeimg.com/640/480/tech?r=0.25181403664113833",
-      "https://placeimg.com/640/480/tech?r=0.02010176036814526"
+      "https://picsum.photos/640/480?random=1",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -367,9 +255,9 @@ productos.forEach((obj) => {
       "typeImg": "animals"
     },
     "images": [
-      "https://placeimg.com/640/480/animals?r=0.6963735777356608",
-      "https://placeimg.com/640/480/animals?r=0.011342490804782779",
-      "https://placeimg.com/640/480/animals?r=0.152150462530386"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480",
+      "https://picsum.photos/640/480"
     ]
   },
   {
@@ -383,9 +271,9 @@ productos.forEach((obj) => {
       "typeImg": "animals"
     },
     "images": [
-      "https://placeimg.com/640/480/animals?r=0.43222609660425926",
-      "https://placeimg.com/640/480/animals?r=0.9328858435705225",
-      "https://placeimg.com/640/480/animals?r=0.818412461298063"
+      "https://picsum.photos/640/480?random=9",
+      "https://picsum.photos/640/480?random=9",
+      "https://picsum.photos/640/480?random=9"
     ]
   },
   {
@@ -399,9 +287,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.04877510069940216",
-      "https://placeimg.com/640/480/arch?r=0.9932697386888067",
-      "https://placeimg.com/640/480/arch?r=0.5643311701971601"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -415,9 +303,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.0734158144145649",
-      "https://placeimg.com/640/480/arch?r=0.8933558939058386",
-      "https://placeimg.com/640/480/arch?r=0.7845050388363097"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -431,9 +319,9 @@ productos.forEach((obj) => {
       "typeImg": "tech"
     },
     "images": [
-      "https://placeimg.com/640/480/tech?r=0.6837818042475852",
-      "https://placeimg.com/640/480/tech?r=0.9327016515248634",
-      "https://placeimg.com/640/480/tech?r=0.8014400661392629"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -447,9 +335,9 @@ productos.forEach((obj) => {
       "typeImg": "animals"
     },
     "images": [
-      "https://placeimg.com/640/480/animals?r=0.8373918485339837",
-      "https://placeimg.com/640/480/animals?r=0.003718627398223484",
-      "https://placeimg.com/640/480/animals?r=0.14279400656725305"
+      "https://picsum.photos/640/480?random=8",
+      "https://picsum.photos/640/480?random=8",
+      "https://picsum.photos/640/480?random=8"
     ]
   },
   {
@@ -463,9 +351,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.05986501797238253",
-      "https://placeimg.com/640/480/arch?r=0.5032383999957448",
-      "https://placeimg.com/640/480/arch?r=0.4191911094080123"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -479,9 +367,9 @@ productos.forEach((obj) => {
       "typeImg": "animals"
     },
     "images": [
-      "https://placeimg.com/640/480/animals?r=0.05234407209035319",
-      "https://placeimg.com/640/480/animals?r=0.026393935534570145",
-      "https://placeimg.com/640/480/animals?r=0.041723013407952037"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -495,9 +383,9 @@ productos.forEach((obj) => {
       "typeImg": "animals"
     },
     "images": [
-      "https://placeimg.com/640/480/animals?r=0.8928698194150053",
-      "https://placeimg.com/640/480/animals?r=0.24311242252891896",
-      "https://placeimg.com/640/480/animals?r=0.615384611836288"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -511,9 +399,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.3111995366049387",
-      "https://placeimg.com/640/480/arch?r=0.46851904961597124",
-      "https://placeimg.com/640/480/arch?r=0.8576593267890429"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -527,9 +415,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.5104249933869116",
-      "https://placeimg.com/640/480/arch?r=0.41770556000543935",
-      "https://placeimg.com/640/480/arch?r=0.4220159669871395"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -543,9 +431,9 @@ productos.forEach((obj) => {
       "typeImg": "any"
     },
     "images": [
-      "https://placeimg.com/640/480/any?r=0.0363990141605377",
-      "https://placeimg.com/640/480/any?r=0.1351975536748795",
-      "https://placeimg.com/640/480/any?r=0.19435120841837716"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -559,9 +447,9 @@ productos.forEach((obj) => {
       "typeImg": "people"
     },
     "images": [
-      "https://placeimg.com/640/480/people?r=0.5417210580553455",
-      "https://placeimg.com/640/480/people?r=0.6791124449613812",
-      "https://placeimg.com/640/480/people?r=0.8129517992090554"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -575,9 +463,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.18281308703288124",
-      "https://placeimg.com/640/480/arch?r=0.582281282057586",
-      "https://placeimg.com/640/480/arch?r=0.720416547588355"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -591,9 +479,9 @@ productos.forEach((obj) => {
       "typeImg": "animals"
     },
     "images": [
-      "https://placeimg.com/640/480/animals?r=0.15035594022076504",
-      "https://placeimg.com/640/480/animals?r=0.31843719612121313",
-      "https://placeimg.com/640/480/animals?r=0.5726472015405311"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -607,9 +495,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.3612048176211342",
-      "https://placeimg.com/640/480/arch?r=0.5466326797005869",
-      "https://placeimg.com/640/480/arch?r=0.25400597905007394"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -623,9 +511,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.5528576706981756",
-      "https://placeimg.com/640/480/arch?r=0.025409315741415472",
-      "https://placeimg.com/640/480/arch?r=0.6717574749803024"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -639,9 +527,9 @@ productos.forEach((obj) => {
       "typeImg": "animals"
     },
     "images": [
-      "https://placeimg.com/640/480/animals?r=0.9846818826285917",
-      "https://placeimg.com/640/480/animals?r=0.8417230251203744",
-      "https://placeimg.com/640/480/animals?r=0.47588924446018055"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -655,9 +543,9 @@ productos.forEach((obj) => {
       "typeImg": "tech"
     },
     "images": [
-      "https://placeimg.com/640/480/tech?r=0.2877623918508698",
-      "https://placeimg.com/640/480/tech?r=0.30390828741267994",
-      "https://placeimg.com/640/480/tech?r=0.5620989257068914"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -671,9 +559,9 @@ productos.forEach((obj) => {
       "typeImg": "tech"
     },
     "images": [
-      "https://placeimg.com/640/480/tech?r=0.38123257630159624",
-      "https://placeimg.com/640/480/tech?r=0.0838239169839774",
-      "https://placeimg.com/640/480/tech?r=0.44532633150422485"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -687,9 +575,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.36695435388009057",
-      "https://placeimg.com/640/480/arch?r=0.8802138337158996",
-      "https://placeimg.com/640/480/arch?r=0.13639350156876673"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -703,9 +591,9 @@ productos.forEach((obj) => {
       "typeImg": "any"
     },
     "images": [
-      "https://placeimg.com/640/480/any?r=0.044147108190876416",
-      "https://placeimg.com/640/480/any?r=0.18417764013024707",
-      "https://placeimg.com/640/480/any?r=0.6794480726150645"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -719,9 +607,9 @@ productos.forEach((obj) => {
       "typeImg": "tech"
     },
     "images": [
-      "https://placeimg.com/640/480/tech?r=0.9421340767184512",
-      "https://placeimg.com/640/480/tech?r=0.28898359329656054",
-      "https://placeimg.com/640/480/tech?r=0.569457192473755"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -735,9 +623,9 @@ productos.forEach((obj) => {
       "typeImg": "tech"
     },
     "images": [
-      "https://placeimg.com/640/480/tech?r=0.2422473310700861",
-      "https://placeimg.com/640/480/tech?r=0.8818782931312577",
-      "https://placeimg.com/640/480/tech?r=0.440190476041159"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -751,9 +639,9 @@ productos.forEach((obj) => {
       "typeImg": "people"
     },
     "images": [
-      "https://placeimg.com/640/480/people?r=0.8718947168360214",
-      "https://placeimg.com/640/480/people?r=0.7157180424495986",
-      "https://placeimg.com/640/480/people?r=0.3466065156793654"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -767,9 +655,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.044171201437636975",
-      "https://placeimg.com/640/480/arch?r=0.35577667173127914",
-      "https://placeimg.com/640/480/arch?r=0.21970050427717913"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -783,9 +671,9 @@ productos.forEach((obj) => {
       "typeImg": "tech"
     },
     "images": [
-      "https://placeimg.com/640/480/tech?r=0.6243623481066196",
-      "https://placeimg.com/640/480/tech?r=0.09049543028704643",
-      "https://placeimg.com/640/480/tech?r=0.28875467231972163"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -799,9 +687,9 @@ productos.forEach((obj) => {
       "typeImg": "tech"
     },
     "images": [
-      "https://placeimg.com/640/480/tech?r=0.990892009537339",
-      "https://placeimg.com/640/480/tech?r=0.9293214500222746",
-      "https://placeimg.com/640/480/tech?r=0.4905878816866305"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -815,9 +703,9 @@ productos.forEach((obj) => {
       "typeImg": "tech"
     },
     "images": [
-      "https://placeimg.com/640/480/tech?r=0.6970098177268655",
-      "https://placeimg.com/640/480/tech?r=0.8328075533692176",
-      "https://placeimg.com/640/480/tech?r=0.4199259341069985"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -831,9 +719,9 @@ productos.forEach((obj) => {
       "typeImg": "people"
     },
     "images": [
-      "https://placeimg.com/640/480/people?r=0.9767963014267727",
-      "https://placeimg.com/640/480/people?r=0.7296855651146801",
-      "https://placeimg.com/640/480/people?r=0.20777445563620112"
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -847,9 +735,9 @@ productos.forEach((obj) => {
       "typeImg": "arch"
     },
     "images": [
-      "https://placeimg.com/640/480/arch?r=0.515663271767816",
-      "https://placeimg.com/640/480/arch?r=0.6508002391359924",
-      "https://placeimg.com/640/480/arch?r=0.1963222105303506"
+      "https://images.unsplash.com/photo-1556505622-49ea9f8eaf76?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://picsum.photos/640/480?random=10",
+      "https://picsum.photos/640/480?random=10"
     ]
   },
   {
@@ -870,7 +758,7 @@ productos.forEach((obj) => {
     "title": "Piedra Filosofal",
     "description": "Una roca de valor infinito",
     "images": [
-      "https://significadodelaspiedras.com/wp-content/uploads/2017/09/piedra-filosofal.jpe"
+      "https://images.unsplash.com/photo-1562162135-9f64f33e623b?q=80&w=1315&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ],
     "price": 8,
     "category": {
@@ -884,7 +772,7 @@ productos.forEach((obj) => {
     "title": "La piedra Roja",
     "description": "Una roca de valor infinito",
     "images": [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTedfV_uCzovjJejZ7yt8YYET00MJrPTkmJS_o9WetyAmfbMRLwhnlPm1pmUR-2cXGIKnw&usqp=CAU"
+      "https://images.unsplash.com/photo-1522776851755-3914469f0ca2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ],
     "price": 8,
     "category": {
@@ -921,4 +809,4 @@ productos2.forEach((producto) => {
   this.productsService.createFirestore(producto).then(() => {
     console.log('Producto agregado');
   });
-});*/
+});

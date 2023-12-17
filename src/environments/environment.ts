@@ -1,13 +1,14 @@
 export const environment = {
   firebase: {
-    projectId: 'angular-platzi-curso3',
-    appId: '1:472571999207:web:470e8a7b609caf9b634342',
-    storageBucket: 'angular-platzi-curso3.appspot.com',
-    apiKey: 'AIzaSyDV6DlzalRE9cI-6MACxQalL2dg-k6cjmc',
-    authDomain: 'angular-platzi-curso3.firebaseapp.com',
-    messagingSenderId: '472571999207',
+    apiKey: "AIzaSyCPvkS6Kpqnz7y4Gcqpkm9KwHv1BEq-RxU",
+    authDomain: "curso-4-angular-router-65e46.firebaseapp.com",
+    projectId: "curso-4-angular-router-65e46",
+    storageBucket: "curso-4-angular-router-65e46.appspot.com",
+    messagingSenderId: "246787305069",
+    appId: "1:246787305069:web:2a9ed4eea5bdf0756d1964"
   },
   production: false,
   API_URL: '',
   API_PLATZI: 'https://damp-spire-59848.herokuapp.com',
 };
+

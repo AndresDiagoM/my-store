@@ -98,18 +98,28 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Using this command: `ng build --output-path docs --base-href /my-store/`, you can deploy the project on GitHub Pages. You can visit the online version of this project on [GitHub Pages](https://andresdiagom.github.io/my-store/).
 
-## Online Deploy on StackBlitz
+## Online Deploy on Netlify
 
-Course 1 - Introduction: You can visit the online version of this project on [StackBlitz](https://angular-har1w6.stackblitz.io).
+We need to specify the github branch to deploy, the folder where netlify is gonna find the files to so the deploy after runnig the `ng build` command,  in this case the directory is `dist/my-store`. 
 
-Course 2 - Components: You can visit the online version of this project on [StackBlitz](https://angular-har1w6.stackblitz.io).
+To deploy the project on Netlify, you need to create a `netlify.toml` file, so the app can do the redirections correctly when using angular router. You can see the `netlify.toml` file in this project. You can also see the [Netlify documentation](https://docs.netlify.com/configure-builds/get-started/#basic-build-settings) to learn more about the `netlify.toml` file.
+
+Hosting URL - Course 4 - routing: https://curso-4-angular-router--helpful-daffodil-3a4caa.netlify.app/home
 
 
 ## Online Deploy on Firebase
 
+The deploy on Firebase requires to install the Firebase CLI. You can install it using this command: `npm install -g firebase-tools`. Then, you need to login to Firebase using this command: `firebase login`. Finally, you can deploy the project using this command: `firebase deploy`.
+
+When you use `firebase init`, you will have a `firebase.json` file. You need to change the `public` property to `dist/my-store` to deploy the project after you run tne `ng build` or `npm run build` command. You can see the `firebase.json` file in this project.
+
 Hosting URL - Course 1 - Introduccion: https://angular-platzi-381b5.web.app
 
 Hosting URL - Course 3 - APIs: https://angular-platzi-curso3.web.app
+
+Hosting URL - Course 4 - Forms: https://curso-4-angular-router-65e46.web.app
+
+To use firestore, you need to use the `ng add @angular/fire` command. Then, you need to configure the `environment.ts` file with your Firebase configuration. Finally, you need to import the `AngularFireModule` and the `AngularFirestoreModule` in the `app.module.ts` file. You can see the `environment.ts` file and the `app.module.ts` file in this project.
 
 ### Built With
 
