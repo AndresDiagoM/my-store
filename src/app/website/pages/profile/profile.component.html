@@ -5,4 +5,8 @@
     <p class="email">Email: {{user.email}}</p>
     <p class="role">Role: {{user.role || 'customer'}}</p>
   </div>
+  <div class="profile-admin" *ngIf="user?.role==='admin'">
+    <p class="cms-access"> Acceder al CMS de administrador</p>
+    <a routerLink="/cms" class="admin-link">Admin</a>
+  </div>
 </div>

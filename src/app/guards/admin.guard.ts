@@ -9,14 +9,16 @@ import { AuthService } from '../services/auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
   // --------Constructor--------
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {
+
+  }
 
   // --------Métodos--------
   canActivate(
@@ -26,11 +28,11 @@ export class AuthGuard implements CanActivate {
   {
     return this.authService.user$.pipe(
       map(user => {
-        console.log('[auth guard]: ',user)
-        if (user) {
+        console.log('[admin guard] ',user)
+        if (user && user.role === 'admin') {
           return true;
         } else {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/home']);
           return false;
         }
       })

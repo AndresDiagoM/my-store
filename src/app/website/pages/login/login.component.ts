@@ -11,8 +11,8 @@ import { User, createUserDTO } from '../../../models/user.model';
 })
 export class LoginComponent {
   //--------PROPIEDADES--------
-  email = 'maria@mail.com';
-  password = '12345';
+  email = 'admin@mail.com'; // 'admin@mail.com' maria@mail.com
+  password = 'admin123'; // 'admin123'  12345
   user: User = {
     id: '',
     name: '',
