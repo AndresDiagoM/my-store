@@ -15,7 +15,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 // -------------- Components import ----------------
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { RecapComponent } from './components/recap/recap.component';
 import { NavComponent } from './components/nav/nav.component';
 import { LoginComponent } from './pages/login/login.component';
